@@ -1,0 +1,86 @@
+{% assign image_stretch = false %}
+
+{% assign crop_setting = settings.product-grid %}
+{% if crop_setting == "square" %}
+    {% assign image_crop = "aspect-ratio--square" %}
+    {% assign image_stretch = true %}
+{% elsif crop_setting == "tall" %}
+    {% assign image_crop = "aspect-ratio--tall" %}
+    {% assign image_stretch = true %}
+{% elsif crop_setting == "wide" %}
+    {% assign image_crop = "aspect-ratio--wide" %}
+    {% assign image_stretch = true %}
+{% else %}
+    {% assign image_crop = false %}
+    {% assign image_stretch = false %}
+{% endif %}
+
+<div class="grid-view-item">
+  <div class="grid-view-item-image">
+
+    {% if section.settings.hover-effect and product.media.size > 1 %}
+      <div class="reveal">
+    {% endif %}
+
+    <a href="{{ product.url | within: collection }}" title="{{product.title}}" class="grid__image grid__image__match" tabindex="-1">
+      {% if image_crop %}<div class="aspect-ratio {{ image_crop }}">{% endif %}
+      {% assign image = product.media[0].preview_image %}
+      {% capture props %}
+         style="max-width: {{ image.width }}px"
+      {% endcapture %}
+      {% render 'responsive-image' with image, alt: image.alt, props: props, allow_stretch: image_stretch %}
+
+      {% if section.settings.hover-effect and product.media.size > 1 %}
+        <div class="hidden">
+          {% assign image = product.media[1].preview_image %}
+          {% capture props %}
+            style="max-width: {{ image.width }}px"
+          {% endcapture %}
+          {% render 'responsive-image' with image, alt: image.alt, props: props, allow_stretch: image_stretch %}
+        </div>
+      {% endif %}
+      {% if image_crop %}</div>{% endif %}
+    </a>
+
+    {% if section.settings.hover-effect and product.media.size > 1 %}
+      </div>
+    {% endif %}
+
+    {% if settings.quick_shop_options == 'quick_view' %}
+      <div class="shop-now-wrapper">
+        <a class="shop-now-button" href="{{ product.url | within: collection }}">{{ 'products.product.quick_shop' | t }}</a>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="grid-view-item--desc-wrapper">
+    <div>
+      {% if section.settings.show-vendor %}
+        <div class="product-grid--vendor-text">{{ product.vendor }}</div>
+      {% endif %}
+      <div class="product-grid--title">
+        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      </div>
+      <div class="product-grid--price">
+        {% render 'product-grid-item-price', product: product, collection: collection, show_reviews: settings.show_reviews %}
+      </div>
+    </div>
+  </div>
+
+  {% if settings.quick_shop_options == "quick_add" %}
+    <div class="quick-add-wrapper{% if product.variants.size == 1 %} is-singular{% endif %}">
+      {% if product.variants.size > 1 and product.available %}
+        <a class="quick-add-button-variants" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.view_options' | t }}</a>
+      {% elsif product.available %}
+        {% form 'product', product, id: "CollectionAddToCartForm" %}
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+          <button class="quick-add-button" type="submit" tabindex="0">{{ 'products.product.add_to_cart' | t }}</button>
+        {% endform %}
+      {% else %}
+        <a class="sold-out-button" tabindex="0" href="{{ product.url | within: collection }}">{{ 'products.product.sold_out' | t }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+</div>

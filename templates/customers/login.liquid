@@ -1,0 +1,123 @@
+<!-- /templates/customers/login.liquid -->
+
+{% if customer %}
+<script>window.location.href = '/account';</script>
+{% endif %}
+
+<div class="grid">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      
+      <div id="CustomerLoginForm" class="customer-form" data-animation="true" data-animation-right-start="-50px" data-animation-right-end="0" data-animation-delay="1000">
+          <div class="text-center">
+            <h4>Member Login</h4>
+          </div>
+        {% form 'customer_login' %}
+
+          {{ form.errors | default_errors }}
+
+          <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" ref="customerEmail" autofocus>
+
+          {% if form.password_needed %}
+            <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+          {% endif %}
+        
+          <input type="hidden" name="return_to" value="/">
+          <button type="submit">{{ 'customer.login.sign_in' | t }}</button>
+          <p class="text-center mb-0">
+            <a href="#RecoverPasswordForm" data-fancybox="recover" class="customer_recover_link" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+          </p>
+        {% endform %}
+        
+        <div class="member-benefits text-center">
+		  <h4 class="mb-4">Member Benefits</h4>
+          <p>Club Cierto members receive<br>
+            priority access to:</p>
+          <div class="text-left mt-4 mb-3">
+          	{% comment %}<p class="mb-3"><span class="icon">■</span> The Cierto Reserve Collection tequilas</p>{% endcomment %}
+            <p class="mb-3"><span class="icon">■</span> New "Limited Edition" bottles of Cierto</p>
+            <p class="mb-3"><span class="icon">■</span> Special Cierto Collections before they are available to the public</p>
+            <p class="mb-3"><span class="icon">■</span> Invitations to Club Cierto tastings and events</p>
+            <p class="text-center mt-4">
+              <span class="box">$100 Annual Membership</span>
+            </p>
+          </div>
+          <a href="/account/register" class="customer_register_link">Become a Member</a>
+        </div>
+      </div>
+      
+      <!-- Popup register success message -->
+      <div class="popup-message" id="RegisterSuccess" style="display: none;">
+        <div class="inner">
+          <div class="sitewide--title-wrapper">
+            <h2 class="page--title">THANK YOU FOR JOINING CLUB CIERTO</h2>
+          </div>
+          <p>Please check your email for instructions on activating and finalizing your Club Cierto account!</p>
+        </div>
+      </div>
+      <!-- End popup register success message -->
+      
+      <!-- Popup password recover success message-->
+      <div class="popup-message" id="RecoverPasswordSuccess" style="display: none;">
+        <div class="inner">
+          <div class="sitewide--title-wrapper">
+            <h2 class="page--title">Email has been sent.</h2>
+          </div>
+          <p>Please check your email.</p>
+        </div>
+      </div>
+      <!-- Popup password recover-->
+      
+      <div class="popup-message recover-password-form" id="RecoverPasswordForm" style="display: none;">
+        
+        <div class="inner">
+
+          <div class="sitewide--title-wrapper">
+
+            <h2 class="page--title">{{ 'customer.recover_password.title' | t }}</h2>
+          </div>
+          <p>{{ 'customer.recover_password.subtext' | t }}</p>
+
+          <div class="form-vertical">
+            {% form 'recover_customer_password' %}
+
+            {{ form.errors | default_errors }}
+
+            <script>
+              var postResetPassword = false;
+            </script>
+
+            {% comment %}
+            Assign variable to be used after timber.init() is run in theme.liquid
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+            {% assign resetPassword = true %}
+            <script>
+              postResetPassword = true;
+            </script>
+            {% endif %}
+
+            <label for="RecoverEmail" class="hidden-label">{{ 'customer.recover_password.email' | t }}</label>
+            <input type="email" value="" name="email" id="RecoverEmail" class="input-full" placeholder="{{ 'customer.recover_password.email' | t }}" autocorrect="off" autocapitalize="off">
+
+            <p>
+              <input type="submit" class="btn btn--full account-section--btn" value="{{ 'customer.recover_password.submit' | t }}">
+            </p>
+            {% comment %}
+            <p>
+              <a id="HideRecoverPasswordLink" class="text-link">{{ 'customer.recover_password.cancel' | t }}</a>
+            </p>
+            {% endcomment %}
+            {% endform %}
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="member-benefits" data-animation="true" data-animation-left-start="-50px" data-animation-left-end="0" data-animation-delay="1000"></div>
+    </div>
+  </div>
+
+</div>

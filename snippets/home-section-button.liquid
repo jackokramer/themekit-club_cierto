@@ -1,0 +1,16 @@
+{% if link != blank %}
+    <div>
+        <a
+            class="homepage-section-btn {% if label == blank %} homepage-section-btn--hidden{% endif %}"
+            href="{{ link }}"
+            data-section-main-link
+            {% if label == blank %}
+                aria-hidden="true"
+            {% endif %}
+        >
+            {% if label != blank %}
+                {{ label }}
+            {% endif %}
+        </a>
+    </div>
+{% endif %}

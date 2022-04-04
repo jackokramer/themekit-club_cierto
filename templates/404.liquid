@@ -1,0 +1,42 @@
+  <div class="error-404" data-animation="true" data-animation-top-start="-100px" data-animation-top-end="0" data-animation-delay="1000">
+    <h4>SORRY, WE COULDN’T FIND THAT PAGE</h4>
+    <div>
+      <a href="{{ shop.url }}" class="button">Return home</a>
+    </div>
+  </div>
+
+  <div class="more-products products-404">
+    <div class="container-fluid">
+      <div class="products" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+        {% comment %}
+        {% assign collection = 'all-products' %}
+        {% if product.title contains 'Private' %}
+          {% assign collection = 'private-collection' %}
+        {% elsif product.title contains 'Reserve' %}
+          {% assign collection = 'reserve-collection' %}
+        {% endif %}
+        {% endcomment %}
+        {% assign collection = 'private-collection' %}
+        
+      	{% for relatedProduct in collections[collection].products %}
+          {% if relatedProduct.id != product.id %}
+          	<div class="product text-center">
+              <a href="{{ relatedProduct.url }}">
+                <div class="title">
+                  {% if relatedProduct.title contains "Private" %}
+                  	{% assign relatedProductTitle = "Private Collection" %}
+                  {% else %}
+                  	{% assign relatedProductTitle = "Reserve Collection" %}
+                  {% endif %}
+                  
+                  <h2>{{ relatedProductTitle }}</h2>
+                  <img src="{{ relatedProduct.metafields.global.label_image | img_url: 'x40' }}" alt="{{ relatedProductTitle | escape }}">
+                </div>
+                <img src="{{ relatedProduct.metafields.global.cart_image | img_url: '200x' }}" alt="{{ relatedProductTitle | escape }}" class="image">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>

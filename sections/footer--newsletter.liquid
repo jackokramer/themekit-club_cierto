@@ -1,0 +1,119 @@
+{% if section.settings.show_section == true %}
+    <div
+        class="homepage-sections-wrapper homepage-sections-wrapper--{{ section.settings.colors }} newsletter--section"
+        data-wetheme-section-type="footer--newsletter"
+        data-wetheme-section-id="{{ section.id }}"
+    >
+      {% render 'newsletter-form', form_id: 'newsletter--section_form' %}
+    </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Newsletter",
+        "de": "Newsletter",
+        "es": "Boletín de noticias",
+        "fr": "Bulletin d'information",
+        "pt-PT": "Newsletter"
+    },
+    "class": "footer-section--newsletter-wrapper",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_section",
+            "label": {
+                "en": "Show section",
+                "de": "Abschnitt anzeigen",
+                "es": "Mostrar sección",
+                "fr": "Afficher la section",
+                "pt-PT": "Mostrar secção"
+            },
+            "default": false
+        },
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "light",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "Minimal",
+                        "fr": "Minimal",
+                        "de": "Minimal",
+                        "es": "Mínimo",
+                        "pt-PT": "Mínimo"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "newsletter_heading",
+            "type": "text",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Join our Mailing List",
+                "de": "Melden Sie sich bei unserer Mailingliste an",
+                "es": "Únase a nuestra lista de correo electrónico",
+                "fr": "Inscrivez-vous à notre liste d'envoi",
+                "pt-PT": "Aderir à nossa Lista de E-mails"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "newsletter_description",
+            "label": {
+                "en": "Description",
+                "de": "Beschreibung",
+                "es": "Descripción",
+                "fr": "Description",
+                "pt-PT": "Descrição"
+            }
+        }
+    ]
+}
+{% endschema %}

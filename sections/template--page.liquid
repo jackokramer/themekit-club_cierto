@@ -1,0 +1,223 @@
+<!-- /sections/page-template.liquid -->
+<div class="grid clearfix">
+  <div class="grid__item">
+
+    <div class="sitewide--title-wrapper">
+      <h1 class="page--title">{{ page.title }}</h1>
+    </div>
+
+    <div class="grid">
+      <div class="rte grid__item">
+        {{ page.content }}
+      </div>
+  	</div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Page",
+        "de": "Seite",
+        "es": "Página",
+        "fr": "Page",
+        "pt-PT": "Página"
+    },
+    "settings": [
+        {
+            "type": "select",
+            "id": "page_width",
+            "label": {
+                "en": "Width",
+                "de": "Breite",
+                "es": "Ancho",
+                "fr": "Largeur",
+                "pt-PT": "Largura"
+            },
+            "options": [
+                {
+                    "value": "full-width",
+                    "label": {
+                        "en": "Full width",
+                        "de": "Volle Breite",
+                        "es": "Ancho completo",
+                        "fr": "Pleine largeur",
+                        "pt-PT": "Largura total"
+                    }
+                },
+                {
+                    "value": "narrow",
+                    "label": {
+                        "en": "Narrow",
+                        "de": "Eng",
+                        "es": "Estrecho",
+                        "fr": "Restreindre",
+                        "pt-PT": "Reduzido"
+                    }
+                }
+            ],
+            "default": "full-width"
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Sidebar",
+                "de": "Seitenleiste",
+                "es": "Barra lateral",
+                "fr": "Barre latérale",
+                "pt-PT": "Barra lateral"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "show_sidebar",
+            "label": {
+                "en": "Enable",
+                "de": "Aktivieren",
+                "es": "Habilitar",
+                "fr": "Activer",
+                "pt-PT": "Ativar efeito de paralaxe"
+            },
+            "default": false
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": {
+                "en": "Title",
+                "de": "Titel",
+                "es": "Título",
+                "fr": "Titre",
+                "pt-PT": "Título"
+            },
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": {
+                        "en": "Title",
+                        "de": "Titel",
+                        "es": "Título",
+                        "fr": "Titre",
+                        "pt-PT": "Título"
+                    },
+                    "default": {
+                        "en": "Title",
+                        "de": "Titel",
+                        "es": "Título",
+                        "fr": "Titre",
+                        "pt-PT": "Título"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "richtext",
+            "name": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": {
+                        "en": "Text",
+                        "de": "Text",
+                        "es": "Texto",
+                        "fr": "Texte",
+                        "pt-PT": "Texto"
+                    },
+                    "default": {
+                        "en": "<p>Add any additional content you want across your stores content pages</p>",
+                        "de": "<p>Fügen Sie alle zusätzlichen Inhalte hinzu, die Sie auf den Inhaltsseiten Ihrer Shops haben möchten</p>",
+                        "es": "<p>Añada cualquier contenido adicional que desee en todas las páginas de su tienda</p>",
+                        "fr": "<p>Ajouter tout contenu supplémentaire que vous désirez dans toutes les pages de contenu de vos magasins</p>",
+                        "pt-PT": "<p>Adicione os conteúdos adicionais que quiser nas páginas de conteúdo das suas lojas</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "menu",
+            "name": {
+                "en": "Menu",
+                "de": "Menü",
+                "es": "Menú",
+                "fr": "Menu",
+                "pt-PT": "Menu"
+            },
+            "settings": [
+                {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": {
+                        "en": "Menu",
+                        "de": "Menü",
+                        "es": "Menú",
+                        "fr": "Menu",
+                        "pt-PT": "Menu"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "image_picker",
+            "name": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "sidebar_image",
+                    "label": {
+                        "en": "Image",
+                        "de": "Bild",
+                        "es": "Imagen",
+                        "fr": "Image",
+                        "pt-PT": "Imagem"
+                    }
+                },
+                {
+                    "type": "text",
+                    "id": "image_title",
+                    "label": {
+                        "en": "Image title",
+                        "de": "Bildtitel",
+                        "es": "Título de la imagen",
+                        "fr": "Titre de l'image",
+                        "pt-PT": "Título da imagem"
+                    },
+                    "placeholder": {
+                        "en": "Title",
+                        "de": "Titel",
+                        "es": "Título",
+                        "fr": "Titre",
+                        "pt-PT": "Título"
+                    }
+                },
+                {
+                    "type": "url",
+                    "id": "image_link",
+                    "label": {
+                        "en": "Image link",
+                        "de": "Bildlink",
+                        "es": "Enlace de la imagen",
+                        "fr": "Lien vers l'image",
+                        "pt-PT": "Link da imagem"
+                    }
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

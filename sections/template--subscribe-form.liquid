@@ -1,0 +1,38 @@
+{% schema %}
+  {
+    "name": "Subscribe form",
+    "settings": []
+  }
+{% endschema %}
+
+{{ 'subscribe-form.css' | asset_url | stylesheet_tag }}
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<form id="payment-form">
+  <label for="email">Email</label>
+  <input type="text" name="email" id="email" placeholder="">
+  
+  <label for="f-name">First Name</label>
+  <input type="text" name="f-name" id="f-name" placeholder="">
+  
+  <label for="s-name">Last Name</label>
+  <input type="text" name="s-name" id="s-name" placeholder="">
+  
+<!--     <div id="card-number"></div>
+  <label for="card-number">Expiry date</label>
+  <div id="card-expiry"></div>
+  <label for="card-number">CVC</label>
+  <div id="card-cvc"></div> -->
+  <label for="card-number">Credit or debit card</label>
+  <div id="card-element">
+    <!--Stripe.js injects the Payment Element-->
+  </div>
+  <button type="submit" id="btn-submit">
+    <div class="spinner hidden" id="spinner"></div>
+    <span id="button-text">Pay now</span>
+  </button>
+  <div id="payment-message" class="hidden"></div>
+</form>
+
+{{ 'subscribe-form.js' | asset_url | script_tag }}

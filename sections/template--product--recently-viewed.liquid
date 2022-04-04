@@ -1,0 +1,96 @@
+{% assign quick_view = false %}
+{% assign quick_add = false %}
+
+{% if settings.quick_shop_options == 'quick_view' %}
+  {% assign quick_view = true %}
+{% endif %}
+
+{% if settings.quick_shop_options == 'quick_add' %}
+  {% assign quick_add = true %}
+{% endif %}
+
+{% if section.settings.enable_recently_viewed %}
+  <div
+    class="recently-viewed-products clearfix collection"
+    data-product-handle="{{ product.handle }}"
+    data-product-url="{% if routes.root_url != '/' %}{{ routes.root_url }}{% endif %}/products/PLACEHOLDER/?view=recently-used-grid"
+    data-wetheme-section-type="template--product--recently-viewed"
+    data-wetheme-section-id="{{ section.id }}"
+    data-quick-shop="{{ quick_view }}"
+    data-quick-add="{{ quick_add }}"
+    data-show-reviews="{{ settings.show_reviews }}"
+    style="display: none"
+  >
+    <div class="wrapper" role="main">
+      {% unless section.settings.recently_viewed_title == blank %}
+        <div class="sitewide--title-wrapper">
+          <h2 class="page--title">{{ section.settings.recently_viewed_title }}</h2>
+        </div>
+      {% endunless %}
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper" id="recently-viewed-products"></div>
+      </div>
+      <div class="swiper-button--prev">
+        <i class="fa fa-chevron-left"></i>
+      </div>
+      <div class="swiper-button--next">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+    "name": {
+      "en": "Recently viewed",
+      "de": "Zuletzt angesehen",
+      "es": "Visitado recientemente",
+      "fr": "Récemment consulté",
+      "pt-PT": "Recentemente visualizado"
+    },
+    "settings": [
+      {
+          "type": "header",
+          "content": {
+              "en": "Recently viewed",
+              "de": "Zuletzt angesehen",
+              "es": "Visitado recientemente",
+              "fr": "Récemment consulté",
+              "pt-PT": "Recentemente visualizado"
+          }
+      },
+      {
+          "type": "checkbox",
+          "id": "enable_recently_viewed",
+          "label": {
+              "en": "Enable",
+              "de": "Aktivieren",
+              "es": "Habilitar",
+              "fr": "Activer",
+              "pt-PT": "Ativar efeito de paralaxe"
+          },
+          "default": true
+      },
+      {
+          "type": "text",
+          "id": "recently_viewed_title",
+          "label": {
+              "en": "Heading",
+              "de": "Überschrift",
+              "es": "Encabezado",
+              "fr": "Rubrique",
+              "pt-PT": "Título"
+          },
+          "default": {
+              "en": "Recently viewed products",
+              "de": "Zuletzt angesehene Produkte",
+              "es": "Productos visitados recientemente",
+              "fr": "Produits récemment consultés",
+              "pt-PT": "Produtos recentemente visualizados"
+          }
+      }
+   ]
+}
+{% endschema %}

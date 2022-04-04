@@ -1,0 +1,297 @@
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign pageUrl = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | split:'.myshopify.com' | last |
+	replace:'\/','/' |
+	replace:'%20',' ' |
+	replace:'\u0026','&'
+-%}
+{%- assign query_tags = '' -%}
+{%- if pageUrl contains '?' -%}
+  {%- assign pageQuerystring = pageUrl | split:'?' | last -%}
+  {%- assign tag = pageQuerystring | split:'=' | last -%}
+  {%- assign query_tags = tag | split: "," -%}
+{%- endif -%}
+<!doctype html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '180x180', crop: 'center' }}" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ settings.favicon | img_url: '180x180', crop: 'center'  }}">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ settings.favicon | img_url: '180x180', crop: 'center'  }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | img_url: '32x32', crop: 'center'  }}">
+    <link rel="icon" type="image/png" sizes="194x194" href="{{ settings.favicon | img_url: '194x194', crop: 'center'  }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ settings.favicon | img_url: '192x192', crop: 'center'  }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ settings.favicon | img_url: '16x16', crop: 'center'  }}">
+  {% endif %}
+
+  <!-- Title and description ================================================== -->
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  <!-- Helpers ================================================== -->
+  {% render 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}"/>
+  {% if template contains 'product' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, shrink-to-fit=no">
+  {% endif %}
+  <meta name="theme-color" content="#000000">
+
+  <!-- CSS ================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  {{ 'jquery.fancybox.min.css' | asset_url | stylesheet_tag }}
+  {{ 'custom.css' | asset_url | stylesheet_tag }}
+  {% comment %}
+  It might make sense to add a new CSS file since it seems like the custom.css file was created to replace the
+  {{ 'newcustom.css' | asset_url | stylesheet_tag }}
+  {% endcomment%}
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+{% render 'globo.alsobought.script' %}
+
+  {% if template contains 'customers' %}
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {% endif %}
+</head>
+<body id="{{ page_title | handle }}" class="{% if template == 'page.contact' %}contact-page {% endif %}{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% unless settings.animations_enabled %} animations-disabled{% endunless %}{% if settings.page_fade_enabled %} page-fade{% endif %}{% if settings.color_body_bg == settings.header-bg-color %} white--match{% endif %}{% if settings.product-grid != 'natural' %} images-aspect-ratio{% endif %} ">
+  <script>
+    var classList = document.documentElement.classList;
+    classList.add('supports-js')
+    classList.add('js');
+    classList.remove('no-js');
+  </script>
+
+  <!-- Bold: Memberships -->
+  {% if customer %}
+  <div class="bold_customer_id" hidden>{{ customer.id }}</div>
+  {% endif %}
+  <!-- end Bold code -->
+
+  <div id="PageContainer">
+    <header{% if template != 'index' %} class="small"{% endif %}>
+      <div class="logo" data-animation="true" data-animation-delay="1500">
+        <a href="/">
+          <img src="{{ 'logo-header.png' | asset_url }}" alt="Cierto">
+        </a>
+      </div>
+      <a class="cart" href="/cart" data-animation="true" data-animation-delay="1500">
+        <svg width="26" height="26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0.008 0 25.985 26" fill="#bca57f"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0.125 0.125 25.785 25.8"><path paint-order="stroke fill markers" fill-rule="evenodd" d="M19.87 22.348c.74 0 1.329.589 1.329 1.328a1.32 1.32 0 0 1-1.328 1.328 1.321 1.321 0 0 1-1.328-1.328c0-.74.59-1.328 1.328-1.328zm-8.759 0c.739 0 1.328.589 1.328 1.328a1.32 1.32 0 0 1-1.328 1.328 1.32 1.32 0 0 1-1.327-1.328c0-.74.588-1.328 1.327-1.328zM4.858 5.813h20.07L23.39 17.33H6.652L4.858 5.813zM.575.125a.46.46 0 0 0 0 .92h2.612l.676 4.344c0 .01.002.023.004.034l1.936 12.442a.257.257 0 0 0 .005.02l.632 4.072a.462.462 0 0 0 .456.39h2.415a2.23 2.23 0 0 0-.445 1.329 2.254 2.254 0 0 0 2.245 2.25 2.256 2.256 0 0 0 2.248-2.25c0-.498-.17-.954-.446-1.328h5.156a2.23 2.23 0 0 0-.446 1.328 2.256 2.256 0 0 0 2.248 2.25 2.257 2.257 0 0 0 2.249-2.25c0-.498-.17-.954-.447-1.328h2.172a.46.46 0 0 0 .02-.92h-.02H7.29l-.494-3.176h16.998c.229 0 .424-.17.456-.398l1.656-12.442a.459.459 0 0 0-.454-.52H4.716L4.033.516a.458.458 0 0 0-.452-.39H.575z"/></svg></svg>
+        {% if cart.item_count > 0 %}
+          <span>{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+      <div class="nav" data-animation="true" data-animation-delay="1500" tabindex="0">
+        <svg class="open" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M21 16H3v-2h18v2zm0-6H3V8h18v2z" fill="#bca57f"/></g></svg>
+        <svg class="close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5z" fill="#bca57f"/></g></svg>
+      </div>
+    </header>
+
+    <div class="page-content">
+      {{ content_for_layout }}
+    </div>
+
+    <footer class="overflow-hidden">
+      <div class="row" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+        <div class="col-12">
+          <ul class="menu">
+            {% for link in linklists.footer.links %}
+              <li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>
+			{% endfor %}
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+		  <p class="text-uppercase">© 2022 Club Cierto</p>
+		  <ul class="links">
+            {% for link in linklists.bottom-links.links %}
+              <li>
+                <a href="{{ link.url }}" class="text-uppercase">{{ link.title }}</a>
+                {% if forloop.last != true %}
+                <span class="link-separator">|</span>
+                {% endif %}
+              </li>
+			{% endfor %}
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="social d-flex h-100 justify-content-end align-items-center">
+            <a href="https://www.instagram.com/ciertotequila/" target="_blank">
+              <img src="{{ 'instagram.svg' | asset_url }}" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/Ciertotequila/" target="_blank">
+              <img src="{{ 'facebook.svg' | asset_url }}" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/ciertotequila/" target="_blank">
+              <img src="{{ 'twitter.svg' | asset_url }}" alt="Twitter">
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <ul class="navigation">
+	<li><a href="/collections/all-products">Shop Cierto</a></li>
+    {% if customer %}
+    <li><a href="{{ routes.account_url }}">My Account</a></li>
+	<li><a href="{{ routes.account_logout_url }}">Logout</a></li>
+    {% else %}
+	<li><a href="{{ routes.account_login_url }}">Member Login</a></li>
+    <li><a href="{{ routes.account_register_url }}" class="become-a-member1 button1"><span>Become a Member</span></a></li>
+    {% endif %}
+  </ul>
+  <div class="navigation-overlay"></div>
+
+  <div class="sticky-cart">
+    <div tabindex="0" class="cart-close cart-arrow"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10 6L2 16l8 10M2 16h28"/></g></svg></div>
+    <div class="cart-title text-center">Shopping Cart</div>
+    <div tabindex="0" class="cart-close"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 30L30 2m0 28L2 2"/></g></svg></div>
+    <div class="cart-products">
+      {% if cart.item_count > 0 %}
+        {% for item in cart.items %}
+          <div class="cart-product cart-product-{{ item.product.handle }}" data-variant-id="{{ item.variant_id }}">
+            <a href="{{ item.url }}"><img src="{{ item.product.metafields.global.cart_image | img_url: '60x' }}" alt="{{ item.title }}" class="image"></a>
+            <div class="details">
+              <div class="title">
+                <a href="{{ item.url }}">
+                  {% if item.title contains "Private" %}
+					{{ "Private Collection" }}
+                  {% else %}
+                  	{{ "Reserve Collection" }}
+                  {% endif %}
+                  <br>
+                  <img src="{{ item.product.metafields.global.label_image | img_url: 'x30' }}" alt="{{ item.title }}">
+                </a>
+              </div>
+              <div class="quantity d-flex align-items-center">
+                <span>Quantity</span>
+                <button type="button" name="minus">-</button>
+                <input type="text" value="{{ item.quantity }}" min="1" class="text-center" disabled="disabled">
+                <button type="button" name="plus">+</button>
+                <div class="price">{{ item.final_line_price | money }}</div>
+              </div>
+            </div>
+            <a href="{{ item.url_to_remove }}" class="remove-from-cart">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="0.92em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 22 24"><path d="M16.313 4V2.187v-.043C16.313.96 15.353 0 14.169 0H7.831A2.142 2.142 0 0 0 5.69 2.189v-.002V4H0v2h.575c.196.023.372.099.515.214l-.002-.002c.119.157.203.346.239.552l.001.008l1.187 15.106c.094 1.84.094 2.118 2.25 2.118h12.462c2.16 0 2.16-.275 2.25-2.113l1.187-15.1c.036-.217.12-.409.242-.572l-.002.003a.994.994 0 0 1 .508-.212h.58v-2h-5.687zM7 2.187c0-.6.487-.938 1.106-.938h5.734c.618 0 1.162.344 1.162.938V4h-8zM6.469 20l-.64-12h1.269l.656 12zm5.225 0H10.32V8h1.375zm3.85 0h-1.275l.656-12h1.269z" fill="white"/></svg>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+      	<div class="empty text-center">{{ 'cart.general.empty' | t }}</div>
+      {% endif %}
+    </div>
+    <div class="buttons"{% if cart.item_count == 0 %} style="display:none"{% endif %}>
+      <div class="total">Total: <span>{{ cart.total_price | money }}</span></div>
+      <a href="#" class="button cart-close">Continue Shopping</a>
+      <form action="{{ routes.cart_url }}" method="post" novalidate>
+        <button type="submit" name="checkout" class="button">Checkout</button>
+      </form>
+    </div>
+    <div class="all-sales-made-by">All sales made by Keg N Bottle</div>
+  </div>
+
+  {% unless customer %}
+  	{% unless query_tags contains 'Club+Cierto+Membership' %}
+  	  {% if page.handle != 'terms' and page.handle != 'privacy' %}
+      <div class="welcome-popup">
+        <div class="welcome-popup-content-border">
+          <div class="welcome-popup-content">
+            <img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto" class="logo">
+            <div>Are you of legal drinking age?</div>
+            <div class="btns">
+              <button type="button" class="btn btn-yes"><span>Yes</span></button>
+              <button type="button" class="btn btn-no"><span>No</span></button>
+            </div>
+            <p>Submission of this form constitutes acceptance of the <a href="/pages/terms">Terms and Conditions</a>, <a href="/pages/privacy">Privacy Policy</a>, and <a href="/pages/privacy">Cookies</a> of the website.
+            {% comment %}
+            <h4>Welcome to<br>club Cierto</h4>
+            <img src="{{ 'Cierto_Logo.svg' | asset_url }}" alt="Cierto" class="logo">
+            <div>
+              <a href="{{ routes.account_login_url }}" class="btn">Member Sign In</a>
+              <a href="#" class="btn">Shop as a Guest</a>
+            </div>
+            <p>You must be 21+ to enter</p>
+            <div class="bottles-left">
+              <img src="{{ 'CiertoTequila_Black_Private_Trio_Sparkles.png' | asset_url }}" alt="Private Collection">
+            </div>
+            <div class="bottles-right">
+              <img src="{{ 'CiertoTequila_Black_Reserve_Trio_Sparkles.png' | asset_url }}" alt="Reserve Collection">
+            </div>
+            {% endcomment %}
+          </div>
+        </div>
+      </div>
+  	  {% endif %}
+      <div class="login-popup">
+        <div class="login-popup-content-border">
+          <div class="login-popup-content">
+            <p>The Cierto Reserve Collection is reserved for  <span style="color:#bca57f">Club Cierto</span> members.<br>Please sign in or become a member to enjoy this limited edition collection.</p>
+            <div>
+              <a href="{{ routes.account_login_url }}" class="btn"><span>Member Sign In</span></a>
+              <a href="{{ routes.account_register_url }}" class="btn"><span>Become a member</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  	{% endunless %}
+  {% endunless %}
+
+  <div class="overlay"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script defer src="{{ 'jquery.cookie.js' | asset_url }}"></script>
+  <script defer src="{{ 'jquery.fancybox.min.js' | asset_url }}"></script>
+  <script>var customer = {% if customer %}true{% else %}false{% endif %};</script>
+  <script defer src="{{ 'custom.js' | asset_url }}"></script>
+  {% if template == 'product' %}
+  <script>
+    jQuery.cookie=function(b,j,m){if(typeof j!="undefined"){m=m||{};if(j===null){j="";m.expires=-1}var e="";if(m.expires&&(typeof m.expires=="number"||m.expires.toUTCString)){var f;if(typeof m.expires=="number"){f=new Date();f.setTime(f.getTime()+(m.expires*24*60*60*1000))}else{f=m.expires}e="; expires="+f.toUTCString()}var l=m.path?"; path="+(m.path):"";var g=m.domain?"; domain="+(m.domain):"";var a=m.secure?"; secure":"";document.cookie=[b,"=",encodeURIComponent(j),e,l,g,a].join("")}else{var d=null;if(document.cookie&&document.cookie!=""){var k=document.cookie.split(";");for(var h=0;h<k.length;h++){var c=jQuery.trim(k[h]);if(c.substring(0,b.length+1)==(b+"=")){d=decodeURIComponent(c.substring(b.length+1));break}}}return d}};
+    $(document).ready(function() {
+      var products = {{ collections.all.products | json }};
+      var productId = {{ product.id }};
+      var recentlyViewed = $.cookie('recently_viewed');
+      var recentlyViewedSplit = recentlyViewed.split(',');
+      if (recentlyViewed == null || recentlyViewed == '') {
+        recentlyViewed = '{{ product.id }},';
+        var recentlyViewedSplit = recentlyViewed.split(',');
+        $.cookie('recently_viewed', recentlyViewed, { expires: 365, path: '/' });
+      } else {
+        if (recentlyViewedSplit[0] != productId) {
+          recentlyViewed = productId;
+          for (var i = 0; i < 10; i++) {
+            if (recentlyViewedSplit[i] != undefined) {
+              recentlyViewed += ',' + recentlyViewedSplit[i];
+            }
+          }
+          var recentlyViewedSplit = recentlyViewed.split(',');
+          $.cookie('recently_viewed', recentlyViewed, { expires: 365, path: '/' });
+        }
+      }
+      if (recentlyViewedSplit[0] != undefined) {
+        for (var i = 1; i <= 3; i++) {
+          if (recentlyViewedSplit[i] != undefined) {
+            var product = products.find(x => x.id === parseInt(recentlyViewedSplit[i]));
+            $('.recently-viewed .products').append('<div class="product product-' + product.handle + ' text-center">\
+              <a href="/products/' + product.handle + '">\
+                <div class="title">\
+                  <h2>' + product.title.replace('Blanco', '').replace('Reposado', '').replace('Extra Añejo', '').replace('Añejo', '') + '</h2>\
+                  <img src="' + productLogo(product) + '" alt="' + product.title + '">\
+                </div>\
+                <img src="' + productImage(product) + '" alt="' + product.title + '" class="image">\
+              </a>\
+            </div>');
+          }
+        }
+        $('.recently-viewed').show();
+      }
+    });
+  </script>
+  {% endif %}
+</body>
+</html>

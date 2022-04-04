@@ -1,0 +1,226 @@
+{%- assign product = all_products[section.settings.featured_product] -%}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+{% assign on_sale = false %}
+{% if current_variant.compare_at_price > current_variant.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+<div class="featured-product {{ product.title | handle }}{% if section.settings.image_position == 'right' %} bg{% endif %}{% comment %}{% if customer == nil and product.handle contains 'reserve' %} require_login{% endif %}{% endcomment %} {{ section.settings.bg_pattern }}">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-center">
+      <div class="d-inline-flex">
+        {% if section.settings.image_position == 'left' %}
+        <div class="image d-inline-block align-top text-center">
+          {% comment %}<a href="{{ product.url }}" data-animation="true" data-animation-left-start="-100" data-animation-left-end="0" data-animation-delay="1000">{% endcomment %}
+            <img src="{{ product.metafields.global.cart_image | img_url: '300x' }}" alt="{{ product.title | escape }}" data-animation="true" data-animation-left-start="-100" data-animation-left-end="0" data-animation-delay="1000">
+          {% comment %}</a>{% endcomment %}
+        </div>
+    	{% endif %}
+      </div>
+      <div class="d-inline-flex">
+        <div class="details d-inline-block">
+          <div {% if section.settings.image_position == 'right' %}data-animation="true" data-animation-left-start="-100" data-animation-left-end="0" data-animation-delay="1000"{% else %}data-animation="true" data-animation-right-start="-100" data-animation-right-end="0" data-animation-delay="1000"{% endif %}>
+            <div class="logo">
+              <img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto"> 
+            </div>
+            <div class="product-details-title text-center">
+              {% comment %}<a href="{{ product.url }}">{% endcomment %}
+                {% if product.title contains "Private" %}
+                	{% assign product_title = "Private Collection" %}
+                {% else %}
+                	{% assign product_title = "Reserve Collection" %}
+                {% endif %}
+                <h2>{{ product_title }}</h2>
+                <img src="{{ product.metafields.global.label_image | img_url: 'x40' }}" alt="{{ product.title }}">
+              {% comment %}</a>{% endcomment %}
+            </div>
+            <div class="product-details-price text-center">
+              {{ product.price | money }}
+            </div>
+            <div class="product-details-adc text-center">
+              {% form 'product', product, id: "AddToCartForm" %}
+                <select name="id" class="product-single__variants" autocomplete="off">
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+                      <option{% if variant.id == current_variant.id %} selected{% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                    {% else %}
+                      <option value="{{ variant.id }}" disabled>
+                        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                      </option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit" class="button">
+                  <span>Add To Cart</span>
+                </button>
+              {% endform %}
+            </div>
+            <div class="product-details-description text-center">
+              {{ product.description }}
+            </div>
+            <div class="product-details-awards {% if product.title contains 'Blanco' %}blanco{% elsif product.title contains 'Reposado' %}reposado{% elsif product.title contains 'Extra Añejo' %}extra-anejo{% elsif product.title contains 'Añejo' %}anejo{% endif %}">
+              <div class="product-details-awards-title text-center">Highlight Awards</div>
+              <div class="product-details-awards-content">
+                {% assign awardsLines = product.metafields.global.highlight_awards | split: '</p>' %}
+                {% assign awardsLinesSize = awardsLines | size %}
+                {% assign awardsLinesLines = awardsLinesSize | divided_by: 5 %}
+                {% assign awardsLinesLinesI = 1 %}
+                {% assign awardLineI = 1 %}
+                {% for awardLine in awardsLines %}
+                  {% if forloop.first %}
+                	<div class="slide active">
+                  {% endif %}
+                  {{ awardLine }}
+                  {% if awardLineI == 5 and forloop.last %}
+                	</div>
+                  {% elsif awardLineI == 5 %}
+                	</div>
+              		<div class="slide">
+                    {% assign awardLineI = 0 %}
+                    {% assign awardsLinesLinesI = awardsLinesLinesI | plus: 1 %}
+                  {% elsif forloop.last and awardsLinesLinesI > awardsLinesLines %}
+                    </div>
+                  {% endif %}
+                  {% assign awardLineI = awardLineI | plus: 1 %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="product-details-awards-more">
+              <a href="#">More Awards ></a>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="d-inline-flex">
+        {% if section.settings.image_position == 'right' %}
+        <div class="image d-inline-block align-top right-position text-center">
+          {% comment %}<a href="{{ product.url }}" data-animation="true" data-animation-right-start="-100" data-animation-right-end="0" data-animation-delay="1000">{% endcomment %}
+            <img src="{{ product.metafields.global.cart_image | img_url: '300x' }}" alt="{{ product.title | escape }}" data-animation="true" data-animation-right-start="-100" data-animation-right-end="0" data-animation-delay="1000">
+          {% comment %}</a>{% endcomment %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="product-details-awards product-details-awards-mobile {% if product.title contains 'Blanco' %}blanco{% elsif product.title contains 'Reposado' %}reposado{% elsif product.title contains 'Extra Añejo' %}extra-anejo{% elsif product.title contains 'Añejo' %}anejo{% endif %}">
+	  <div class="product-details-awards-title text-center">Highlight Awards</div>
+	  <div class="product-details-awards-content">
+        {% assign awardsLines = product.metafields.global.highlight_awards | split: '</p>' %}
+		{% assign awardsLinesSize = awardsLines | size %}
+		{% assign awardsLinesLines = awardsLinesSize | divided_by: 5 %}
+		{% assign awardsLinesLinesI = 1 %}
+		{% assign awardLineI = 1 %}
+		{% for awardLine in awardsLines %}
+		  {% if forloop.first %}
+			<div class="slide active">
+		  {% endif %}
+		  {{ awardLine | replace: ' — ', '<br>' }}
+		  {% if awardLineI == 5 and forloop.last %}
+			</div>
+		  {% elsif awardLineI == 5 %}
+			</div>
+			<div class="slide">
+		  	{% assign awardLineI = 0 %}
+			{% assign awardsLinesLinesI = awardsLinesLinesI | plus: 1 %}
+		  {% elsif forloop.last and awardsLinesLinesI > awardsLinesLines %}
+			</div>
+		  {% endif %}
+		  {% assign awardLineI = awardLineI | plus: 1 %}
+		{% endfor %}
+	  </div>
+	</div>
+    <div class="product-details-awards-mobile-more">
+	  <a href="#">More Awards ></a>
+	</div>
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Featured product",
+        "de": "Vorgestelltes Produkt",
+        "es": "Producto destacado",
+        "fr": "Produit en vedette",
+        "pt-PT": "Produto em destaque"
+    },
+    "class": "homepage-section--indiv-product-wrapper",
+    "settings": [
+		{
+			"type": "select",
+			"id": "bg_pattern",
+			"label": "Background Pattern",
+			"options": [
+			  {
+                "value": "",
+                "label": "None"
+              },
+              {
+                "value": "pattern-1",
+                "label": "1"
+              },
+			  {
+                "value": "pattern-2",
+                "label": "2"
+              },
+			  {
+                "value": "pattern-3",
+                "label": "3"
+              },
+			  {
+                "value": "pattern-4",
+                "label": "4"
+              }
+			],
+			"default": ""
+		},
+        {
+            "type": "product",
+            "id": "featured_product",
+            "label": {
+                "en": "Product",
+                "de": "Produkt",
+                "es": "Producto",
+                "fr": "Produit",
+                "pt-PT": "Produto"
+            }
+        },
+		{
+			"type": "select",
+			"id": "image_position",
+			"label": "Image position",
+			"options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+			  {
+                "value": "right",
+                "label": "Right"
+              }
+			],
+			"default": "left"
+		}
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Featured product",
+                "de": "Vorgestelltes Produkt",
+                "es": "Producto destacado",
+                "fr": "Produit en vedette",
+                "pt-PT": "Produto em destaque"
+            },
+            "category": {
+                "en": "Products",
+                "de": "Produkte",
+                "es": "Productos",
+                "fr": "Produits",
+                "pt-PT": "Produtos"
+            }
+        }
+    ]
+}
+
+{% endschema %}

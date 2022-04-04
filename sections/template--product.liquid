@@ -1,0 +1,685 @@
+<div
+  itemscope itemtype="http://schema.org/Product"
+  data-wetheme-section-type="template--product" data-wetheme-section-id="{{ section.id }}"
+>
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="https:{{ product.featured_media.preview_image | img_url: 'grande' }}">
+  <meta itemprop="brand" content="{{ product.vendor }}">
+  <meta itemprop="sku" content="{{ product.selected_or_first_available_variant.sku }}">
+
+  {% comment %}
+  Pick an option only makes sense together with dropdowns - we currently doesn't have pick_an_option
+  {% if section.settings.product_variant_style == 'dropdowns' and section.settings.pick_an_option %}
+    {% assign pick_an_option = true %}
+  {% else %}
+  {% endif %}
+  {% endcomment %}
+  {% assign pick_an_option = false %}
+
+  {% if pick_an_option %}
+    {%- assign current_variant = product.selected_variant -%}
+  {% else %}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {% endif %}
+
+  {% assign on_sale = false %}
+  {% if current_variant.compare_at_price > current_variant.price %}
+    {% assign on_sale = true %}
+  {% endif %}
+
+  {%- assign product_description_width = '' -%}
+  {%- assign product_image_width = '' -%}
+  {% case section.settings.image_size %}
+    {% when 'small' %}
+      {%- assign product_description_width = 'large--seven-twelfths' -%}
+      {%- assign product_image_width = 'large--five-twelfths' -%}
+    {% when 'medium' %}
+      {%- assign product_description_width = 'large--six-twelfths' -%}
+      {%- assign product_image_width = 'large--six-twelfths' -%}
+    {% when 'large' %}
+      {%- assign product_description_width = 'large--five-twelfths' -%}
+      {%- assign product_image_width = 'large--seven-twelfths' -%}
+  {% endcase %}
+
+  <div class="product-media-templates">
+    {% assign featured_media = current_variant.featured_media | default: product.featured_media %}
+    {% render 'product-media-templates', product: product, section_id: section.id, featured_media_id: featured_media.id, enable_image_zoom: section.settings.enable_image_zoom, enable_video_loop: section.settings.enable_video_loop %}
+  </div>
+
+  {% assign style = 'full_width' %}
+  {% if section.settings.image-display == 'thumbnails' %}
+    {% assign style = section.settings.thumbnail_position %}
+  {% endif %}
+  {% if product.media.size <= 1 %}
+    {% comment %}No thumbnails when there's just one (or none) media{% endcomment %}
+    {% assign style = 'full_width' %}
+  {% endif %}
+
+  {% assign wrap_product_variant_id = 0 %}
+  {% if settings.giftwrap_product_selector > '' %}
+    {% assign wrap_product = all_products[settings.giftwrap_product_selector] %}
+    {% assign wrap_product_variant_id = wrap_product.variants.first.id %}
+  {% endif %}
+  
+  <div class="product-template {{ product.title | handle }}{% comment %}{% if customer == nil and product.handle contains 'reserve' %} require_login{% endif %}{% endcomment %}">
+    <div class="container-fluid">
+      <div class="image d-inline-block align-top text-center" data-animation="true" data-animation-left-start="-100px" data-animation-left-end="0" data-animation-delay="1000">
+        <img src="{{ product.metafields.global.cart_image | img_url: '300x' }}" alt="{{ product.title | escape }}">
+      </div>
+      <div class="details d-inline-block">
+        <div data-animation="true" data-animation-right-start="-100px" data-animation-right-end="0" data-animation-delay="1000">
+          <div class="logo">
+            <img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto"> 
+          </div>
+          <div class="product-details-title text-center">
+            {% if product.title contains "Private" %}
+            	{% assign product_title = "Private Collection" %}
+            {% else %}
+            	{% assign product_title = "Reserve Collection" %}
+            {% endif %}
+            <h2>{{ product_title }}</h2>
+            <img src="{{ product.metafields.global.label_image | img_url: 'x30' }}" alt="{{ product.title }}">
+          </div>
+          <div class="product-details-price text-center">
+            {{ product.price | money }}
+          </div>
+          <div class="product-details-adc text-center">
+            {% form 'product', product, id: "AddToCartForm" %}
+              <select name="id" class="product-single__variants" autocomplete="off">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option{% if variant.id == current_variant.id %} selected{% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                  {% else %}
+                    <option value="{{ variant.id }}" disabled>
+                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                    </option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+              <input type="hidden" name="quantity" value="1">
+              <button type="submit" class="button">
+				<span>Add To Cart</span>
+			  </button>
+            {% endform %}
+          </div>
+          <div class="product-details-description text-center">
+            {{ product.description }}
+          </div>
+          <div class="product-details-awards {% if product.title contains 'Blanco' %}blanco{% elsif product.title contains 'Reposado' %}reposado{% elsif product.title contains 'Extra Añejo' %}extra-anejo{% elsif product.title contains 'Añejo' %}anejo{% endif %}">
+            <div class="product-details-awards-title text-center">Highlight Awards</div>
+            <div class="product-details-awards-content">
+              <div class="slide active">
+              	{{ product.metafields.global.highlight_awards }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-details-awards product-details-awards-mobile {% if product.title contains 'Blanco' %}blanco{% elsif product.title contains 'Reposado' %}reposado{% elsif product.title contains 'Extra Añejo' %}extra-anejo{% elsif product.title contains 'Añejo' %}anejo{% endif %}">
+        <div class="product-details-awards-title text-center">Highlight Awards</div>
+        <div class="product-details-awards-content">
+          {{ product.metafields.global.highlight_awards | replace: ' — ', '<br>' }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="more-products related-products">
+    <div class="container-fluid">
+      <div class="title text-center">You May Also Like</div>
+      <div class="products" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+        {% assign collection = 'all-products' %}
+        {% if product.title contains 'Private' %}
+          {% assign collection = 'private-collection' %}
+        {% elsif product.title contains 'Reserve' %}
+          {% assign collection = 'reserve-collection' %}
+        {% endif %}
+        
+      	{% for relatedProduct in collections[collection].products %}
+          {% if relatedProduct.id != product.id %}
+          	<div class="product product-{{ relatedProduct.handle }} text-center">
+              <a href="{{ relatedProduct.url }}">
+                <div class="title">
+                  {% if relatedProduct.title contains "Private" %}
+                      {% assign related_product_title = "Private Collection" %}
+                  {% else %}
+                      {% assign related_product_title = "Reserve Collection" %}
+                  {% endif %}
+                  <h2>{{ related_product_title }}</h2>
+                  <img src="{{ relatedProduct.metafields.global.label_image | img_url: 'x30' }}" alt="{{ relatedProduct.title }}">
+                </div>
+                <img src="{{ relatedProduct.metafields.global.cart_image | img_url: '200x' }}" alt="{{ relatedProduct.title | escape }}" class="image">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+  <div class="more-products recently-viewed">
+    <div class="container-fluid">
+      <div class="title text-center">Recently Viewed</div>
+      <div class="products" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000"></div>
+    </div>
+  </div>
+  
+  {% unless product == empty %}
+    <script type="application/json" class="product-json" id="ProductJson-{{ section.id }}">
+      {{ product | json }}
+    </script>
+  {% endunless %}
+</div>
+
+{% schema %}
+{
+    "name": {
+        "en": "Product pages",
+        "de": "Produktseiten",
+        "es": "Páginas de producto",
+        "fr": "Pages des produits",
+        "pt-PT": "Páginas de produtos"
+    },
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_quantity_selector",
+            "label": {
+                "en": "Show quantity selector",
+                "de": "Anzahlauswähler anzeigen",
+                "es": "Mostrar selector de cantidad",
+                "fr": "Afficher le sélecteur de quantité",
+                "pt-PT": "Mostrar selecionador de quantidade"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_tags",
+            "label": {
+                "en": "Show tags",
+                "de": "Tags anzeigen",
+                "es": "Mostrar etiquetas",
+                "fr": "Afficher les étiquettes",
+                "pt-PT": "Mostrar etiquetas"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_collections",
+            "label": {
+                "en": "Show collections",
+                "de": "Kollektionen anzeigen",
+                "es": "Mostrar colecciones",
+                "fr": "Afficher les collections",
+                "pt-PT": "Mostrar coleções"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_type",
+            "label": {
+                "en": "Show type",
+                "de": "Typ anzeigen",
+                "es": "Mostrar tipo",
+                "fr": "Type d'affichage",
+                "pt-PT": "Mostrar tipo"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_vendor",
+            "label": {
+                "en": "Show vendor",
+                "de": "Verkäufer anzeigen",
+                "es": "Mostrar vendedor",
+                "fr": "Afficher le vendeur",
+                "pt-PT": "Mostrar vendedor"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "show_sku",
+            "label": {
+                "en": "Show SKU",
+                "de": "Bestandseinheit anzeigen",
+                "es": "Mostrar SKU",
+                "fr": "Afficher SKU",
+                "pt-PT": "Mostrar SKU"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "shipping_policy",
+            "label": {
+                "en": "Show shipping policy link",
+                "de": "Link zur Versandrichtlinie anzeigen",
+                "es": "Mostrar enlace de política de envío",
+                "fr": "Afficher le lien de la politique d'expédition",
+                "pt-PT": "Mostrar hiperligação da política de envios"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "tax_included",
+            "label": {
+                "en": "Show 'tax included' message",
+                "de": "Nachricht \"Steuer enthalten\" anzeigen",
+                "es": "Mostrar mensaje \"impuesto incluido\"",
+                "fr": "Afficher le message « taxe incluse »",
+                "pt-PT": "Mostrar mensagem de 'impostos incluídos'"
+            },
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "show_smart_checkout",
+            "label": {
+                "en": "Show dynamic checkout button",
+                "de": "Dynamischen Bezahlbutton anzeigen",
+                "es": "Mostar el botón de compra dinámica",
+                "fr": "Afficher le bouton de paiement dynamique",
+                "pt-PT": "Mostrar botão de checkout dinâmico"
+            },
+            "default": true,
+            "info": {
+                "en": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                "de": "Lässt Kunden direkt unter Verwendung einer bekannten Zahlungsmethode bezahlen. [Mehr erfahren](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                "es": "Permita a los clientes finalizar su compra directamente utilizando un método de pago que les sea familiar. [Aprenda más](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                "fr": "Permet aux clients de payer directement en utilisant un mode de paiement familier. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
+                "pt-PT": "Permita que os clientes façam checkout diretamente utilizando um método de pagamento familiar. [Saber mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "show_pickup_locations",
+            "label": {
+                "en": "Show local pickup availability",
+                "de": "Verfügbarkeit der lokalen Abholung anzeigen",
+                "es": "Mostrar disponibilidad de recogida local",
+                "fr": "Afficher la disponibilité de la collecte locale",
+                "pt-PT": "Exibir a disponibilidade de recolha local"
+            },
+            "default": true,
+            "info": {
+                "en": "Locations must be set up to enable display. [Learn more](https://help.shopify.com/en/manual/locations)",
+                "de": "Standorte müssen eingerichtet sein, um die Anzeige zu aktivieren. [Mehr erfahren](https://help.shopify.com/de/manual/locations)",
+                "es": "Las ubicaciones deben configurarse para habilitar la visualización. [Aprenda más](https://help.shopify.com/es/manual/locations)",
+                "fr": "Les lieux doivent être configurés pour activer l'affichage. [En savoir plus](https://help.shopify.com/fr/manual/locations)",
+                "pt-PT": "As localizações precisam de ser definidas para a exibição ser ativada. [Saber mais](https://help.shopify.com/en/manual/locations)"
+            }
+        },
+        {
+            "type": "image_picker",
+            "id": "trust-badge",
+            "label": {
+                "en": "Trust badge",
+                "de": "Vertrauenssiegel",
+                "es": "Distintivo de confianza",
+                "fr": "Badge de confiance",
+                "pt-PT": "Crachá de confiança"
+            },
+            "info": {
+                "en": "100 x 300px recommended. [Learn more](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
+                "de": "100 x 300 px empfohlen. [Mehr erfahren](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
+                "es": "Recomendado: 100 x 300px. [Aprenda más](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
+                "fr": "100 x 300 px recommandé. [En savoir plus] (https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)",
+                "pt-PT": "100 x 300px recomendado. [Saiba mais](https://support.weareeight.com/hc/en-us/articles/360020242537-Trust-Badges)"
+            }
+        },
+        {
+            "type": "range",
+            "id": "trust-badge_max_width",
+            "min": 10,
+            "max": 920,
+            "step": 10,
+            "unit": {
+                "en": "px",
+                "de": "px",
+                "es": "px",
+                "fr": "px",
+                "pt-PT": "px"
+            },
+            "label": {
+                "en": "Width",
+                "de": "Breite",
+                "es": "Ancho",
+                "fr": "Largeur",
+                "pt-PT": "Largura"
+            },
+            "default": 260
+        },
+        {
+          "type": "select",
+          "id": "description_position",
+          "label": {
+              "en": "Description position",
+              "de": "Beschreibung Position",
+              "es": "Descripción de la posición",
+              "fr": "Position de la description",
+              "pt-PT": "Descrição posição"
+          },
+          "options": [
+            {
+              "value": "inline_top",
+              "label": {
+                  "en": "Above add to cart button",
+                  "de": "Über der Schaltfläche \"Zum Einkaufskorb hinzufügen\"",
+                  "es": "Arriba añadir al botón del carrito",
+                  "fr": "Ci-dessus, le bouton Ajouter au panier",
+                  "pt-PT": "Acima do botão adicionar ao carrinho"
+              }
+            },
+            {
+              "value": "inline_bottom",
+              "label": {
+                  "en": "Below add to cart button",
+                  "de": "Unter der Schaltfläche \"Zum Einkaufskorb hinzufügen\"",
+                  "es": "Abajo añadir al botón del carrito",
+                  "fr": "Ci-dessous, le bouton Ajouter au panier",
+                  "pt-PT": "Abaixo do botão adicionar ao carrinho"
+              }
+            },
+            {
+              "value": "full_width",
+              "label": {
+                  "en": "Below product image",
+                  "de": "Unter dem Produktbild",
+                  "es": "Debajo de la imagen del producto",
+                  "fr": "Ci-dessous, l’Image du produit",
+                  "pt-PT": "Abaixo da imagem do produto"
+              }
+            }
+          ],
+          "default": "inline_bottom"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_readmore",
+            "label": {
+                "en": "Enable 'read more' for description",
+                "de": "'Mehr erfahren' für eine Beschreibung aktivieren",
+                "es": "Habilitar «más información» para la descripción",
+                "fr": "Activer « Lire la suite » pour la description",
+                "pt-PT": "Ativar \"ler mais\" para descrição"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_sticky",
+            "label": {
+                "en": "Enable sticky description",
+                "de": "Sticky-Beschreibung aktivieren",
+                "es": "Habilitar descripción pegajosa",
+                "fr": "Activer la description collante",
+                "pt-PT": "Ativar descrição fixa"
+            },
+            "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_out_of_stock_form",
+          "label": {
+              "en": "Enable out of stock email",
+              "de": "Die E-Mail \"Nicht lieferbar\" aktivieren",
+              "es": "Habilitar correo electrónico agotado",
+              "fr": "Activer le courriel Rupture de stock",
+              "pt-PT": "Ativar e-mail de esgotado"
+          },
+          "default": false
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Product variants",
+                "de": "Produktvarianten",
+                "es": "Variantes del producto",
+                "fr": "Variantes de produits",
+                "pt-PT": "Variantes do produto"
+            }
+        },
+        {
+            "type": "radio",
+            "id": "product_variant_style",
+            "label": {
+                "en": "Product variant style",
+                "de": "Produkt Variante Stil",
+                "es": "Variante de estilo del producto",
+                "fr": "Style de la variante du produit",
+                "pt-PT": "Estilo da variante de produtos"
+            },
+            "options": [
+                {
+                    "value": "dropdowns",
+                    "label": {
+                        "en": "Dropdowns",
+                        "de": "Drop-down-Menüs",
+                        "es": "Menú desplegable",
+                        "fr": "Menus déroulants",
+                        "pt-PT": "Pendentes"
+                    }
+                },
+                {
+                    "value": "swatches",
+                    "label": {
+                        "en": "Swatches",
+                        "de": "Muster",
+                        "es": "Muestras",
+                        "fr": "Échantillons",
+                        "pt-PT": "Amostras"
+                    }
+                }
+            ],
+            "default": "swatches",
+            "info": {
+                "en": "You may need to upload custom swatch images. [Learn more](https://support.weareeight.com/hc/en-us/articles/360020105257-How-to-Upload-Color-Swatches)",
+                "de": "Es könnte sein, dass Sie kundenspezifische Musterbilder hochladen müssen. [Mehr erfahren](https://support.weareeight.com/hc/en-us/articles/360020105257-How-to-Upload-Color-Swatches)",
+                "es": "Puede que necesite subir imágenes de muestra personalizadas. [Aprenda más](https://support.weareeight.com/hc/en-us/articles/360020105257-How-to-Upload-Color-Swatches)",
+                "fr": "Il se peut que vous ayez besoin de télécharger des images d'échantillons personnalisées. [En savoir plus](https://support.weareeight.com/hc/en-us/articles/360020105257-How-to-Upload-Color-Swatches)",
+                "pt-PT": "Poderá ser necessário carregar imagens de amostra personalizadas. [Saber mais](https://support.weareeight.com/hc/en-us/articles/360020105257-How-to-Upload-Color-Swatches)"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "thumbnail_changes_variant",
+            "label": {
+                "en": "Change variant based on the thumbnail",
+                "de": "Variante basierend auf Thumbnail verändern",
+                "es": "Cambiar variante en base a la imagen en miniatura",
+                "fr": "Modifier la variante en fonction de la vignette",
+                "pt-PT": "Alterar base da variante na imagem em miniatura"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "hide_soldout_variants",
+            "label": {
+                "en": "Hide sold-out variants",
+                "de": "Ausverkaufte Varianten verbergen",
+                "es": "Ocultar variantes agotadas",
+                "fr": "Masquer les variantes épuisées",
+                "pt-PT": "Ocultar variantes esgotadas"
+            },
+            "default": false
+        },
+        {
+            "type": "header",
+            "content": {
+                "en": "Media",
+                "de": "Medien",
+                "es": "Medios",
+                "fr": "Médias",
+                "pt-PT": "Media"
+            },
+            "info": {
+                "en": "Learn more about [media types](https://help.shopify.com/en/manual/products/product-media)",
+                "de": "Mehr erfahren über [Medientypen](https://help.shopify.com/en/manual/products/product-media)",
+                "es": "Obtenga más información sobre [tipos de medios](https://help.shopify.com/en/manual/products/product-media)",
+                "fr": "En savoir plus sur [types de médias](https://help.shopify.com/en/manual/products/product-media)",
+                "pt-PT": "Saiba mais sobre [tipos de media](https://help.shopify.com/en/manual/products/product-media)"
+            }
+        },
+        {
+            "type": "select",
+            "id": "image_size",
+            "label": {
+                "en": "Size",
+                "de": "Größe",
+                "es": "Tamaño",
+                "fr": "Taille",
+                "pt-PT": "Tamanho"
+            },
+            "info": {
+                "en": "Recommended 950px minimum width. [Learn more](https://support.weareeight.com/hc/en-us/articles/360020257118-Image-Dimensions)",
+                "de": "950 px Mindestbreite empfohlen. [Mehr erfahren](https://support.weareeight.com/hc/en-us/articles/360020257118-Image-Dimensions)",
+                "es": "Anchura mínima recomendada: 950px. [Aprenda más](https://support.weareeight.com/hc/en-us/articles/360020257118-Image-Dimensions)",
+                "fr": "Largeur minimale recommandée : 950 px. [En savoir plus] (https://support.weareeight.com/hc/en-us/articles/360020257118-Image-Dimensions)",
+                "pt-PT": "950px de largura mínima (recomendado). [Saiba mais](https://support.weareeight.com/hc/en-us/articles/360020257118-Image-Dimensions)"
+            },
+            "options": [
+                {
+                    "value": "small",
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    }
+                },
+                {
+                    "value": "medium",
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    }
+                },
+                {
+                    "value": "large",
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    }
+                }
+            ],
+            "default": "medium"
+        },
+        {
+            "type": "radio",
+            "id": "image-display",
+            "label": {
+                "en": "Secondary media display",
+                "de": "Sekundäre Mediendarstellung",
+                "es": "Visualización de medios secundarios",
+                "fr": "Affichage des médias secondaires",
+                "pt-PT": "Exibição de media secundária"
+            },
+            "options": [
+                {
+                    "value": "full-size",
+                    "label": {
+                        "en": "Full size",
+                        "de": "Vollständige Größe",
+                        "es": "Tamaño completo",
+                        "fr": "Pleine grandeur",
+                        "pt-PT": "Tamanho completo"
+                    }
+                },
+                {
+                    "value": "thumbnails",
+                    "label": {
+                        "en": "Thumbnails",
+                        "de": "Thumbnails",
+                        "es": "Imagen en miniatura",
+                        "fr": "Vignettes",
+                        "pt-PT": "Miniaturas"
+                    }
+                }
+            ],
+            "default": "full-size"
+        },
+        {
+            "type": "select",
+            "id": "thumbnail_position",
+            "label": {
+                "en": "Thumbnail position",
+                "de": "Thumbnail-Position",
+                "es": "Posición de la imagen en miniatura",
+                "fr": "Position de la vignette",
+                "pt-PT": "Posição da imagem em miniatura"
+            },
+            "options": [
+                {
+                    "value": "below",
+                    "label": {
+                        "en": "Below main media",
+                        "de": "Unterhalb Hauptmedien",
+                        "es": "Por debajo de los principales",
+                        "fr": "Sous les principaux médias",
+                        "pt-PT": "Abaixo da media principal"
+                    }
+                },
+                {
+                    "value": "left",
+                    "label": {
+                        "en": "Left of main media",
+                        "de": "Links von Hauptmedien",
+                        "es": "A la izquierda de los principales",
+                        "fr": "À gauche des principaux médias",
+                        "pt-PT": "À esquerda da media principal"
+                    }
+                },
+                {
+                    "value": "right",
+                    "label": {
+                        "en": "Right of main media",
+                        "de": "Rechts von Hauptmedien",
+                        "es": "A la derecha de los principales",
+                        "fr": "À droite des principaux médias",
+                        "pt-PT": "À direita da media principal"
+                    }
+                }
+            ],
+            "default": "below"
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_image_zoom",
+            "label": {
+                "en": "Enable zoom for product images",
+                "de": "Zoom für Produktbilder aktivieren",
+                "es": "Habilitar zoom para la imágenes de los productos",
+                "fr": "Activer le zoom pour les images de produits",
+                "pt-PT": "Ativar zoom para imagens de produtos"
+            },
+            "default": false
+        },
+        {
+            "type": "checkbox",
+            "id": "enable_video_loop",
+            "label": {
+                "en": "Enable video looping",
+                "de": "Videoschleife erlauben",
+                "es": "Habilitar bucle de vídeo",
+                "fr": "Activer la boucle vidéo",
+                "pt-PT": "Ativar loop de vídeo"
+            },
+            "default": false
+        }
+    ]
+}
+{% endschema %}

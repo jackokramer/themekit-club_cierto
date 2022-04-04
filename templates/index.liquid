@@ -1,0 +1,166 @@
+<!-- Bold: Memberships (index) -->
+{% include 'bold_mem_helper' with 'index' %}
+<!-- end Bold code -->
+
+<section class="home-splash">
+  <div class="content text-center">
+    {% comment %}
+    <div class="logo" data-animation="true" data-animation-delay="1500">
+	  <a href="/">
+		<img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto">
+	  </a>
+	</div>
+    {% endcomment %}
+    <div class="text-center">
+      <h1 data-animation="true" data-animation-top-start="-50px" data-animation-top-end="0" data-animation-delay="1000">Welcome To Club Cierto</h1>
+    </div>
+    <div class="bottles text-center" data-animation="true" data-animation-delay="2500">
+      <img src="{{ 'Club-Cierto-Homepage-Hero-All-Expressions-1.png' | asset_url }}" alt="">
+    </div>
+    <div class="quote" data-animation="true" data-animation-top-start="-50px" data-animation-top-end="0" data-animation-delay="1000">
+      "Cierto is The World's Best Tequila"
+      <br>
+      <span>- Forbes</span>
+    </div>
+    <a href="/account/login" class="button scrollToSection2" data-animation="true" data-animation-left-start="-50px" data-animation-left-end="0" data-animation-delay="1000">
+      <span>Member Sign in</span>
+    </a>
+    <a href="/collections/all-products" class="button" data-animation="true" data-animation-right-start="-50px" data-animation-right-end="0" data-animation-delay="1000">
+      <span>Shop as a Guest</span>
+    </a>
+    {% comment %}
+    <div class="age" data-animation="true" data-animation-bottom-start="-20px" data-animation-bottom-end="0" data-animation-delay="1000">
+      You must be 21+ to enter
+    </div>
+    {% endcomment %}
+  </div>
+  {% comment %}
+  <div class="bottom text-center" data-animation="true" data-animation-bottom-start="-50px" data-animation-bottom-end="0" data-animation-delay="1000">
+    "Cierto is The World's Best Tequila"
+    <br>
+    <span>- Forbes</span>
+  </div>
+  {% endcomment %}
+</section>
+
+{% comment %}
+<section class="home-divider">
+  <img src="{{ 'header-divider.jpeg' | asset_url }}" alt="">
+</section>
+{% endcomment %}
+
+<section class="image-text text-left collection_bg" data-animation="true" data-animation-delay="1500">
+  <div class="content text-center">
+    <div class="content-border">
+      <div class="content-info">
+        <div class="logo">
+          <img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto">
+        </div>
+        <div>
+          <h4>Private Collection</h4>
+          <p>Award winning incredibly smooth, authentic,<br>100% natural "true" tequilas with zero additives</p>
+        </div>
+        <div>
+          <a href="/collections/private-collection" class="button">
+            <span>Shop Collection</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="{{ 'Cierto-Tequila-Private-Collection-Festive-V5-Web.jpeg' | asset_url }}" alt="Private Collection" data-animation="true" data-animation-delay="1500" class="desktop">
+  <img src="{{ 'Cierto-Tequila-Private-Collection-Festive-V4-Mobile-Web.jpeg' | asset_url }}" alt="Private Collection" data-animation="true" data-animation-delay="1500" class="mobile">
+</section>
+
+<section class="image-text text-right collection_bg" data-animation="true" data-animation-delay="1500">
+  <div class="content text-center right">
+    <div class="content-border">
+      <div class="content-info">
+        <div class="logo">
+          <img src="{{ 'Cierto_Logo-73.svg' | asset_url }}" alt="Cierto"> 
+        </div>
+        <div>
+          <h4>Reserve Collection</h4>
+          <p>Also 100% natural with zero additives, but with<br>an even more refined and elegant taste</p>
+        </div>
+        <div>
+          <a href="/collections/reserve-collection" class="button reserve-button">
+            <span>Shop Collection</span>
+          </a>
+          {% comment %}<p class="mb-0 mt-2">(Reserved for Club Cierto members)</p>{% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="{{ 'Cierto-Tequila-Reserve-Collection-Festive-V5-Web.jpeg' | asset_url }}" alt="Private Collection" data-animation="true" data-animation-delay="1500" class="desktop">
+  <img src="{{ 'Cierto-Tequila-Reserve-Collection-Festive-V4-Mobile-Web.jpeg' | asset_url }}" alt="Reserve Collection" data-animation="true" data-animation-delay="1500" class="mobile">
+</section>
+
+{{ content_for_index }}
+
+<section class="awards">
+  <div class="container-fluid">
+    <div class="count text-center" data-animation="true" data-animation-delay="1000">
+      <div class="count-border">
+        <div class="title text-center" data-animation="true" data-animation-top-start="-50px" data-animation-top-end="0" data-animation-delay="1000">
+          <img src="{{ 'awards-icon.svg' | asset_url }}" alt="Cierto Awards"><br>
+          The Most Awarded Tequila In History<span>™</span>
+        </div>
+        <span class="counter" data-counter="{{ settings.count }}">{{ settings.count }}</span>{% comment %}<span class="plus">+</span>{% endcomment %}
+        <p data-animation="true" data-animation-bottom-start="-50px" data-animation-bottom-end="0" data-animation-delay="1000">International Medals and Awards</p>
+      </div>
+    </div>
+    <div class="shop-buttons">
+      <div class="text-center" data-animation="true" data-animation-left-start="-100px" data-animation-left-end="0" data-animation-delay="1000">
+        <a href="/collections/private-collection" class="button">
+          <span>Shop Private Collection</span>
+        </a>
+      </div>
+      <div class="text-center" data-animation="true" data-animation-right-start="-100px" data-animation-right-end="0" data-animation-delay="1000">
+        <a href="/collections/reserve-collection" class="button">
+          <span>Shop Reserve Collection</span>
+        </a>
+      </div>
+    </div>
+    {% comment %}
+    <div class="title text-center" data-animation="true" data-animation-top-start="-100px" data-animation-top-end="0" data-animation-delay="1000">
+      Cierto Highlight Awards
+    </div>
+    <div class="list text-center" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+      <a href="{{ '01_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '01_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '02_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '02_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '07_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '07_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '05_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '05_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '08_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '08_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '09_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '09_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '06_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '06_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '10_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '10_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '03_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '03_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '04_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '04_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '01_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '01_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '02_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '02_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '07_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '07_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '05_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '05_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '08_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '08_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '09_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '09_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '06_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '06_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '10_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '10_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '03_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '03_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '04_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '04_Medal.png' | asset_url }}" alt=""></a>
+      <a href="{{ '17_Medal.png' | asset_url }}" data-fancybox="awards" data-width="488" data-height="488"><img src="{{ '17_Medal.png' | asset_url }}" alt=""></a>
+    </div>
+    {% endcomment %}
+    {% comment %}
+    <div class="description text-center"data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+      Cierto is authentic “true” tequila handcrafted from the very finest Highland agave. Due to its character, complexity and incredibly smooth taste, Cierto has been heralded by tequila experts as “The World’s Finest Tequila.”
+    </div>
+    {% endcomment %}
+    {% comment %}
+    <div class="text-center" data-animation="true" data-animation-bottom-start="-100px" data-animation-bottom-end="0" data-animation-delay="1000">
+      <a href="https://ciertotequila.com/#awards" class="button">
+        <span>View More Cierto Awards</span>
+      </a>
+    </div>
+    {% endcomment %}
+  </div>
+</section>

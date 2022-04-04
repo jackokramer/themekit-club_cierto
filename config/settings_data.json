@@ -1,0 +1,2302 @@
+{
+  "current": {
+    "count": "506",
+    "color_body_text": "#ffffff",
+    "color_primary": "#ffffff",
+    "color_body_bg": "#1b1b1b",
+    "color_body_bg_secondary": "#1b1b1b",
+    "sale_badge_color": "#ae8f72",
+    "sale_price_color": "#ae8f72",
+    "enable-sale-badge": false,
+    "sold_out_badge_color": "#ae8f72",
+    "sold_out_badge_font_color": "#ffffff",
+    "cart_color": "#ae8f72",
+    "color_primary_navigation": "#ffffff",
+    "color_primary_navigation_hover": "#ffffff",
+    "header-bg-color": "#1b1b1b",
+    "header-transparent-text": "#fff",
+    "mobile-menu-bg": "#1b1b1b",
+    "mobile-menu-text": "#ffffff",
+    "mobile-menu-text-hover": "#ffffff",
+    "color_primary_button_text_hover": "#eeeeee",
+    "colorSchemeLightText": "#1b1b1b",
+    "homepage-sections-accent-primary-color": "#ae8f72",
+    "homepage-sections-accent-secondary-color": "#ffffff",
+    "colorSchemeDarkBackground": "#1b1b1b",
+    "pop-up-background-color": "#1b1b1b",
+    "pop-up-text-color": "#ffffff",
+    "cart-drawer-bg": "#1b1b1b",
+    "cart-drawer-text": "#ffffff",
+    "color_footer_bg": "#333333",
+    "color_footer_text": "#ffffff",
+    "type_header_font": "montserrat_n7",
+    "header-text-size": 24,
+    "heading_spacing": 3,
+    "heading_font_case": "uppercase",
+    "type_base_font": "palatino_n4",
+    "type_navigation_font": "montserrat_n6",
+    "header_font_size": 14,
+    "header_font_case": "uppercase",
+    "button_text_case": "uppercase",
+    "button_font_style": "normal",
+    "product_page_font_size": 24,
+    "product_page_font_case": "uppercase",
+    "product_page_font_style": "normal",
+    "announcement_text_case": "uppercase",
+    "show-collection-image": true,
+    "parallax": false,
+    "collection-image-size": "original",
+    "product-grid": "natural",
+    "quick_shop_options": "quick_add",
+    "predictive_search_enabled": true,
+    "sm_facebook_link": "https:\/\/www.facebook.com\/ciertotequila\/",
+    "sm_twitter_link": "https:\/\/www.twitter.com\/ciertotequila\/",
+    "sm_instagram_link": "https:\/\/www.instagram.com\/ciertotequila\/",
+    "social_sharing_product": false,
+    "popup--enable": false,
+    "popup--show-social-icons": false,
+    "popup--show-newsletter": false,
+    "enable_verification_popup": false,
+    "verification-pop-up__header": "Welcome to Club Cierto",
+    "favicon": "shopify:\/\/shop_images\/Cierto_Primary_Logo-1.png",
+    "ken_burns_enabled": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/Checkout-Club-Cierto-White-2.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#4e4e4e",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#1b1b1b",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#1b1b1b",
+    "checkout_button_color": "#ae8f72",
+    "checkout_error_color": "#f26c4f",
+    "quick_add_enable": true,
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "enable_announcement_bar": false,
+          "message_text": "<p>Announce something here<\/p>",
+          "message_link": "",
+          "announcement-bar--background-color": "#242424",
+          "announcement-bar--text-color": "#ffffff",
+          "enable_social_icons": true
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "sticky_header": false,
+          "logo": "shopify:\/\/shop_images\/Cierto_Primary_Logo-1.png",
+          "logo-placement": "center",
+          "logo_padding": 30,
+          "logo_max_width": 220,
+          "logo_max_width_mobile": 90,
+          "mobile-menu-logo--enabled": true,
+          "label-enable": true,
+          "cart-style": "shopping-cart",
+          "cart-number": "quantity",
+          "enable_search": false,
+          "overlay_header_homepage": false,
+          "overlay_header_collection": false,
+          "overlay_header_list_collection": false,
+          "overlay_header_contact": false,
+          "overlay_opacity": 0,
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "main_linklist": "",
+          "dropdown_alignment": "left",
+          "enable_mega_menu": true
+        }
+      },
+      "image--slideshow": {
+        "type": "image--slideshow",
+        "disabled": true,
+        "blocks": {
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto-Header-Grey.jpg",
+              "title": "CLUB CIERTO",
+              "text": "Where You Can Buy The World's Finest Tequila™",
+              "button_label": "",
+              "button_link": "",
+              "caption-background": "rgba(0,0,0,0)",
+              "caption-text": "#ffffff",
+              "button-text": "#ffffff",
+              "button-background": "#000000",
+              "captionHorizontal": "center",
+              "captionAlignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0"
+        ],
+        "settings": {
+          "slider-animation": "slide",
+          "slider-width": "full-width",
+          "vertical-alignment": true,
+          "slider-slide-time": 5,
+          "caption-heading-size": 30,
+          "caption-subheading-size": 30,
+          "caption-button-size": 14,
+          "show-slide-dots": false,
+          "show-slide-arrows": false,
+          "slider-navigation-color": "#ffffff"
+        }
+      },
+      "collection--collection-list": {
+        "type": "collection--collection-list",
+        "disabled": true,
+        "blocks": {
+          "collection-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "private-collection",
+              "subheading": "",
+              "overlay-btn-text": "SHOP",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#1b1b1b"
+            }
+          },
+          "collection-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "reserve-collection",
+              "subheading": "",
+              "overlay-btn-text": "SHOP",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#1b1b1b"
+            }
+          }
+        },
+        "block_order": [
+          "collection-0",
+          "collection-1"
+        ],
+        "settings": {
+          "colors": "dark",
+          "title": "",
+          "richtext": "",
+          "items-per-row": 2,
+          "fill-the-area": false,
+          "remove-spacing": true,
+          "section-width": "full",
+          "content-position": "hover"
+        }
+      },
+      "collection--featured-collection": {
+        "type": "collection--featured-collection",
+        "disabled": true,
+        "settings": {
+          "colors": "dark",
+          "title": "",
+          "richtext": "",
+          "collection": "all-products",
+          "grid-desktop": 4,
+          "grid-tablet": 3,
+          "grid-mobile": 2,
+          "rows": 1,
+          "hover-effect": true,
+          "show-vendor": false,
+          "show_view_all": true
+        }
+      },
+      "video--video-hero": {
+        "type": "video--video-hero",
+        "settings": {
+          "url": "",
+          "desktopHeight": "650",
+          "mobileHeight": "450",
+          "title": "\"Cierto Is The World's Best Tequila\"",
+          "subheading": "–Forbes",
+          "textAlignment": "top-center",
+          "textColor": "#ffffff",
+          "textShadow": false,
+          "heading--text-size": 50,
+          "subheading--text-size": 24,
+          "button_label": "Learn more",
+          "button-text": "#000000",
+          "button-background": "#ffffff"
+        }
+      },
+      "collection--featured-collection-1": {
+        "type": "collection--featured-collection",
+        "disabled": true,
+        "settings": {
+          "colors": "dark",
+          "title": "",
+          "richtext": "",
+          "collection": "all-products",
+          "grid-desktop": 4,
+          "grid-tablet": 3,
+          "grid-mobile": 2,
+          "rows": 2,
+          "hover-effect": true,
+          "show-vendor": false,
+          "show_view_all": false
+        }
+      },
+      "image--logo-list": {
+        "type": "image--logo-list",
+        "disabled": true,
+        "blocks": {
+          "image--logo-list-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forbes-logo-black-and-white.png",
+              "link": ""
+            }
+          },
+          "image--logo-list-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forbes-logo-black-and-white.png",
+              "link": ""
+            }
+          },
+          "image--logo-list-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forbes-logo-black-and-white.png",
+              "link": ""
+            }
+          },
+          "image--logo-list-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/forbes-logo-black-and-white.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "image--logo-list-0",
+          "image--logo-list-1",
+          "image--logo-list-2",
+          "image--logo-list-3"
+        ],
+        "settings": {
+          "colors": "dark",
+          "width": 150,
+          "title": "FEATURED IN"
+        }
+      },
+      "text--testimonials": {
+        "type": "text--testimonials",
+        "disabled": true,
+        "blocks": {
+          "testimonials-2": {
+            "type": "text",
+            "settings": {
+              "testimonial_text": "<p> With hints of butterscotch and cooked agave. The expression is smooth and rich, with flavors that begin with agave and then turn to caramel and finish with a rich cinnamon spice.<\/p>",
+              "testimonial_image": "shopify:\/\/shop_images\/SF-World-Spirits-1.png",
+              "customer_name": "San Francisco World Spirits Competition",
+              "link": "",
+              "stars": 0
+            }
+          },
+          "testimonials-1": {
+            "type": "text",
+            "settings": {
+              "testimonial_text": "<p>A light amber hue with nice legs when it swirls in your glass as hints of citrus comes up to your nose. It coats your tongue with soft layers of coffee and chocolate before its long soft finish.<\/p>",
+              "testimonial_image": "shopify:\/\/shop_images\/NY-International-Spirits-1.png",
+              "customer_name": "New York International Spirits Competition",
+              "link": "",
+              "stars": 0
+            }
+          },
+          "b7ff2f62-ef2f-4a46-8dc6-51acc11f70ef": {
+            "type": "text",
+            "settings": {
+              "testimonial_text": "<p>A lovely balanced nose highlighting attractive agave and the subtle oak. Soft vanilla and agave flavors fill the mouth, while the hint of menthol prepares you for a warming finish.<\/p>",
+              "testimonial_image": "shopify:\/\/shop_images\/IWSC-1.png",
+              "customer_name": "International Wine and Spirits Competition",
+              "link": "",
+              "stars": 0
+            }
+          },
+          "testimonials-0": {
+            "type": "text",
+            "settings": {
+              "testimonial_text": "<p>This is an archetype of a Reposado. The peppery, chili spice of the agave comes through unimpeded and the neutral oak merely softens ... the spirit, allowing any volatility to blow off.<\/p>",
+              "testimonial_image": "shopify:\/\/shop_images\/Ultimate-Spirits-1.png",
+              "customer_name": "Ultimate Spirits Challenge",
+              "link": "",
+              "stars": 0
+            }
+          }
+        },
+        "block_order": [
+          "testimonials-2",
+          "testimonials-1",
+          "b7ff2f62-ef2f-4a46-8dc6-51acc11f70ef",
+          "testimonials-0"
+        ],
+        "settings": {
+          "colors": "accent",
+          "circle_images": false,
+          "title": "The Most Awarded Tequila in History"
+        }
+      },
+      "image--image-with-text-1": {
+        "type": "image--image-with-text",
+        "disabled": true,
+        "settings": {
+          "colors": "white",
+          "text_overlapping_image": true,
+          "section-width": "full",
+          "layout": "left",
+          "text_alignment": "left",
+          "title": "Share brand or product details",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": "Shop now",
+          "button_link": "shopify:\/\/collections\/all"
+        }
+      },
+      "products--featured-product": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-4",
+          "featured_product": "private-collection-extra-anejo",
+          "image_position": "right"
+        }
+      },
+      "image--gallery": {
+        "type": "image--gallery",
+        "blocks": {
+          "gallery-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Awards_New_York_World_Wine_and_Spirits_Competition.png",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Awards_New_York_World_Wine_and_Spirits_Competition.png",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Awards_New_York_World_Wine_and_Spirits_Competition.png",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-3": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Awards_New_York_World_Wine_and_Spirits_Competition.png",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          }
+        },
+        "block_order": [
+          "gallery-0",
+          "gallery-1",
+          "gallery-2",
+          "gallery-3"
+        ],
+        "settings": {
+          "colors": "white",
+          "title": "The Most Awarded Tequila in History",
+          "richtext": "<p>Over 300 International Medals and Awards<\/p>",
+          "remove-spacing": false,
+          "full-width": false,
+          "section-width": "content",
+          "content-position": "hide"
+        }
+      },
+      "image--gallery-0": {
+        "type": "image--gallery",
+        "disabled": true,
+        "blocks": {
+          "gallery-0-0": {
+            "type": "image",
+            "settings": {
+              "link": "",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-0-1": {
+            "type": "image",
+            "settings": {
+              "link": "",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-0-2": {
+            "type": "image",
+            "settings": {
+              "link": "",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          },
+          "gallery-0-3": {
+            "type": "image",
+            "settings": {
+              "link": "",
+              "subheading": "Subheading",
+              "title": "Title",
+              "overlay-btn-text": "",
+              "show-gradient-overlay": true,
+              "overlay_font_color": "#ffffff",
+              "overlay_color": "#323232"
+            }
+          }
+        },
+        "block_order": [
+          "gallery-0-0",
+          "gallery-0-1",
+          "gallery-0-2",
+          "gallery-0-3"
+        ],
+        "settings": {
+          "colors": "white",
+          "title": "",
+          "richtext": "",
+          "remove-spacing": true,
+          "full-width": false,
+          "section-width": "full",
+          "content-position": "hover"
+        }
+      },
+      "blog--blog-posts": {
+        "type": "blog--blog-posts",
+        "disabled": true,
+        "settings": {
+          "colors": "white",
+          "title": "From the blog",
+          "richtext": "",
+          "blog_show_date": true,
+          "post_limit": 3
+        }
+      },
+      "text--text-adverts": {
+        "type": "text--text-adverts",
+        "disabled": true,
+        "blocks": {
+          "advert-0": {
+            "type": "text",
+            "settings": {
+              "heading": "What makes you different",
+              "subheading": "Shout about your unique selling points",
+              "link": ""
+            }
+          },
+          "advert-1": {
+            "type": "text",
+            "settings": {
+              "heading": "What makes you different",
+              "subheading": "Shout about your unique selling points",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "advert-0",
+          "advert-1"
+        ],
+        "settings": {
+          "colors": "dark"
+        }
+      },
+      "footer--newsletter": {
+        "type": "footer--newsletter",
+        "settings": {
+          "show_section": false,
+          "colors": "accent",
+          "newsletter_heading": "Join The Mailing List",
+          "newsletter_description": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "7d4b6d7e-feff-4a9b-a1c7-83468f187ee8": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Primary_Logo-1_a588d66a-7b8b-4881-8e1e-ad81c0c300f1.png",
+              "link": "",
+              "title": ""
+            }
+          },
+          "footer-1": {
+            "type": "menu",
+            "settings": {
+              "menu_title": "CIERTO TEQUILA",
+              "footer_linklist": "footer"
+            }
+          },
+          "27480ea6-bdca-4ef2-945e-bfd177e8b57b": {
+            "type": "social",
+            "settings": {
+              "social_title": "FOLLOW"
+            }
+          }
+        },
+        "block_order": [
+          "7d4b6d7e-feff-4a9b-a1c7-83468f187ee8",
+          "footer-1",
+          "27480ea6-bdca-4ef2-945e-bfd177e8b57b"
+        ],
+        "settings": {
+          "show_methods_of_payment": false,
+          "alignment": "left",
+          "footer_text": "",
+          "show_locale_selector": false,
+          "show_currency_selector": false
+        }
+      },
+      "template--page-contact": {
+        "type": "template--page-contact",
+        "blocks": {
+          "form-1": {
+            "type": "text",
+            "settings": {
+              "field-type": "text",
+              "form-field-label": "",
+              "required": false
+            }
+          },
+          "form-2": {
+            "type": "text",
+            "settings": {
+              "field-type": "email",
+              "form-field-label": "",
+              "required": false
+            }
+          },
+          "form-3": {
+            "type": "text",
+            "settings": {
+              "field-type": "textbox",
+              "form-field-label": "",
+              "required": false
+            }
+          }
+        },
+        "block_order": [
+          "form-1",
+          "form-2",
+          "form-3"
+        ],
+        "settings": {}
+      },
+      "template--product": {
+        "type": "template--product",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_tags": false,
+          "show_collections": false,
+          "show_type": false,
+          "show_vendor": false,
+          "show_sku": false,
+          "shipping_policy": true,
+          "tax_included": false,
+          "show_smart_checkout": true,
+          "show_pickup_locations": true,
+          "trust-badge_max_width": 180,
+          "description_position": "inline_bottom",
+          "enable_readmore": false,
+          "enable_sticky": true,
+          "enable_out_of_stock_form": false,
+          "product_variant_style": "swatches",
+          "thumbnail_changes_variant": true,
+          "hide_soldout_variants": false,
+          "image_size": "medium",
+          "image-display": "thumbnails",
+          "thumbnail_position": "below",
+          "enable_image_zoom": false,
+          "enable_video_loop": false
+        }
+      },
+      "template--collection": {
+        "type": "template--collection",
+        "settings": {
+          "collection-layout": "grid",
+          "show-collection-description": false,
+          "tags_enable": false,
+          "collection-show-sort-by": false,
+          "sort-by-manual": true,
+          "sort-by-price-ascending": true,
+          "sort-by-price-descending": true,
+          "sort-by-title-ascending": true,
+          "sort-by-title-descending": true,
+          "sort-by-created-ascending": true,
+          "sort-by-created-descending": true,
+          "sort-by-best-selling": true,
+          "desktop-products-per-row": 2,
+          "tablet-products-per-row": 2,
+          "mobile-products-per-row": 1,
+          "collection-products-per-page": 4,
+          "pagination_options": "pagination_load_more",
+          "hover-effect": true,
+          "show-vendor": false
+        }
+      },
+      "template--collections-list": {
+        "type": "template--collections-list",
+        "settings": {
+          "show_title": true,
+          "hover-effect": true
+        }
+      },
+      "template--page": {
+        "type": "template--page",
+        "blocks": {
+          "template--page-block-1": {
+            "type": "image_picker",
+            "settings": {
+              "image_title": "",
+              "image_link": ""
+            }
+          },
+          "template--page-block-2": {
+            "type": "text",
+            "settings": {}
+          },
+          "template--page-block-3": {
+            "type": "richtext",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "template--page-block-1",
+          "template--page-block-2",
+          "template--page-block-3"
+        ],
+        "settings": {
+          "show_sidebar": true
+        }
+      },
+      "16234328740aaa0121": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-3",
+          "featured_product": "private-collection-reposado",
+          "image_position": "right"
+        }
+      },
+      "162343306596493666": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-1",
+          "featured_product": "reserve-collection-blanco",
+          "image_position": "left"
+        }
+      },
+      "16234330896266c29c": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-4",
+          "featured_product": "reserve-collection-extra-anejo",
+          "image_position": "right"
+        }
+      },
+      "template--password": {
+        "type": "template--password",
+        "settings": {
+          "password__text-color": "#ffffff",
+          "password__background-color": "#1b1b1b",
+          "password__footer-color": "#ffffff",
+          "password-button__background-color": "#000000",
+          "password-button__text-color": "#ffffff",
+          "password__background": "shopify:\/\/shop_images\/Cierto-Agave-Field-Splash-Photo-Darker.jpg",
+          "password__background_overlay_opacity": 40,
+          "logo": "shopify:\/\/shop_images\/Cierto_Primary_Logo-43.png",
+          "logo_max_width": 200,
+          "password__header-text": "SHOP CIERTO IS COMING SOON",
+          "social_media_icons": false,
+          "newsletter_enable": false,
+          "newsletter_description": ""
+        }
+      },
+      "template--product--recommendations": {
+        "type": "template--product--recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "product_recommendations_heading": "You may also like"
+        }
+      },
+      "template--product--recently-viewed": {
+        "type": "template--product--recently-viewed",
+        "settings": {
+          "enable_recently_viewed": true,
+          "recently_viewed_title": "Recently viewed products"
+        }
+      },
+      "template--blog": {
+        "type": "template--blog",
+        "settings": {
+          "show_author_name": true,
+          "show_blog_tags": false,
+          "show_recent_posts": true,
+          "blog_show_date": true
+        }
+      },
+      "16234407359f62b58c": {
+        "type": "image--logo-list",
+        "disabled": true,
+        "blocks": {
+          "16234407359f62b58c-0": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-1_1e277e6f-b04f-47e5-a101-720646c18cb6.png",
+              "link": ""
+            }
+          },
+          "16234407359f62b58c-1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-3.png",
+              "link": ""
+            }
+          },
+          "16234407359f62b58c-2": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-5.png",
+              "link": ""
+            }
+          },
+          "16234407359f62b58c-3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-7.png",
+              "link": ""
+            }
+          },
+          "9f6f87d0-5ed7-4e4b-ac80-7214831993b1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-9.png",
+              "link": ""
+            }
+          },
+          "453b875b-9efb-45f3-a820-23c53b8a280c": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-8.png",
+              "link": ""
+            }
+          },
+          "a4472fc3-e042-4232-8a31-b15f42e669e6": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-10.png",
+              "link": ""
+            }
+          },
+          "fc5e20fb-1da0-4127-b9d0-25088ac93935": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-2.png",
+              "link": ""
+            }
+          },
+          "75bd191e-6fe9-45df-aca5-6f444425aa03": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-4.png",
+              "link": ""
+            }
+          },
+          "e1cdfe96-4fed-45b7-bc52-1c0299d0aff9": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-6.png",
+              "link": ""
+            }
+          },
+          "5c671ee6-16fe-4cc6-8eaf-41723a9b17f6": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-11.png",
+              "link": ""
+            }
+          },
+          "d64a88f5-d667-4f56-afe3-60f2e2ba2da3": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-12.png",
+              "link": ""
+            }
+          },
+          "92503926-2b5f-41ad-8424-3e1752378d72": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-13.png",
+              "link": ""
+            }
+          },
+          "0fa13e16-61ff-4e3a-9ada-a04ec6a6cb45": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-14.png",
+              "link": ""
+            }
+          },
+          "6d43f513-df29-4b5e-9294-07ddf9ece024": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-15.png",
+              "link": ""
+            }
+          },
+          "f777f215-8b35-47df-a067-ee123832f1c1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-16.png",
+              "link": ""
+            }
+          },
+          "aafbb012-9fdd-4675-a40a-7dfbc43ad832": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-17.png",
+              "link": ""
+            }
+          },
+          "858424d2-b6f9-459c-bc39-37033733eb30": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-18.png",
+              "link": ""
+            }
+          },
+          "92d27422-8bb6-421e-8995-490707d1ee3f": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-19.png",
+              "link": ""
+            }
+          },
+          "b4a97ce0-19ef-40d3-ac03-c7dbc01ad60d": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-20.png",
+              "link": ""
+            }
+          },
+          "29ab93af-c2a9-498c-95f9-71b5a9f8968f": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-34.png",
+              "link": ""
+            }
+          },
+          "53b13564-728b-4ef5-9997-492eab515ce1": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-33.png",
+              "link": ""
+            }
+          },
+          "ae194380-a90b-446e-9d1e-968085d5f203": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-31.png",
+              "link": ""
+            }
+          },
+          "e33b29f3-f474-4926-92c2-089b7526fb79": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Cierto_Gold-Wreath-29.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "16234407359f62b58c-0",
+          "16234407359f62b58c-1",
+          "16234407359f62b58c-2",
+          "16234407359f62b58c-3",
+          "9f6f87d0-5ed7-4e4b-ac80-7214831993b1",
+          "453b875b-9efb-45f3-a820-23c53b8a280c",
+          "a4472fc3-e042-4232-8a31-b15f42e669e6",
+          "fc5e20fb-1da0-4127-b9d0-25088ac93935",
+          "75bd191e-6fe9-45df-aca5-6f444425aa03",
+          "e1cdfe96-4fed-45b7-bc52-1c0299d0aff9",
+          "5c671ee6-16fe-4cc6-8eaf-41723a9b17f6",
+          "d64a88f5-d667-4f56-afe3-60f2e2ba2da3",
+          "92503926-2b5f-41ad-8424-3e1752378d72",
+          "0fa13e16-61ff-4e3a-9ada-a04ec6a6cb45",
+          "6d43f513-df29-4b5e-9294-07ddf9ece024",
+          "f777f215-8b35-47df-a067-ee123832f1c1",
+          "aafbb012-9fdd-4675-a40a-7dfbc43ad832",
+          "858424d2-b6f9-459c-bc39-37033733eb30",
+          "92d27422-8bb6-421e-8995-490707d1ee3f",
+          "b4a97ce0-19ef-40d3-ac03-c7dbc01ad60d",
+          "29ab93af-c2a9-498c-95f9-71b5a9f8968f",
+          "53b13564-728b-4ef5-9997-492eab515ce1",
+          "ae194380-a90b-446e-9d1e-968085d5f203",
+          "e33b29f3-f474-4926-92c2-089b7526fb79"
+        ],
+        "settings": {
+          "colors": "dark",
+          "width": 200,
+          "title": ""
+        }
+      },
+      "162344329374522d7e": {
+        "type": "text--rich-text",
+        "disabled": true,
+        "settings": {
+          "colors": "dark",
+          "title": "the most awarded tequila in history",
+          "text": "<p>Cierto is authentic “true” tequila handcrafted from the very finest Highland agave. <br\/>Due to its character, complexity and incredibly smooth taste, Cierto has been heralded by tequila experts as<br\/>“<strong>The World’s Finest Tequila<\/strong>”<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "162344375195c1378d": {
+        "type": "text--rich-text",
+        "disabled": true,
+        "settings": {
+          "colors": "dark",
+          "title": "",
+          "text": "",
+          "button_label": "View All Awards",
+          "button_link": "https:\/\/ciertotequila.com\/awards"
+        }
+      },
+      "1624457318fe2a5b61": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-1",
+          "featured_product": "private-collection-blanco",
+          "image_position": "left"
+        }
+      },
+      "162445743723af688d": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-1",
+          "featured_product": "private-collection-anejo",
+          "image_position": "left"
+        }
+      },
+      "1624457507645aa22f": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-3",
+          "featured_product": "reserve-collection-reposado",
+          "image_position": "right"
+        }
+      },
+      "1624457529c6bc4fc3": {
+        "type": "products--featured-product",
+        "settings": {
+          "bg_pattern": "pattern-1",
+          "featured_product": "reserve-collection-anejo",
+          "image_position": "left"
+        }
+      },
+      "1624644817b5e70869": {
+        "type": "text--rich-text",
+        "disabled": true,
+        "settings": {
+          "colors": "dark",
+          "title": "the most awarded tequila in history",
+          "text": "<p>Winner of 300+ Medals and Awards<\/p>",
+          "button_label": "Join Club Cierto",
+          "button_link": "https:\/\/shop-cierto.myshopify.com\/account\/register?ose=false"
+        }
+      }
+    },
+    "content_for_index": [
+      "1624644817b5e70869",
+      "image--slideshow",
+      "collection--featured-collection-1",
+      "collection--collection-list",
+      "collection--featured-collection",
+      "162344329374522d7e",
+      "16234407359f62b58c",
+      "image--image-with-text-1",
+      "162344375195c1378d",
+      "1624457318fe2a5b61",
+      "16234328740aaa0121",
+      "162445743723af688d",
+      "products--featured-product",
+      "162343306596493666",
+      "1624457507645aa22f",
+      "1624457529c6bc4fc3",
+      "16234330896266c29c",
+      "text--testimonials",
+      "image--logo-list",
+      "image--gallery-0",
+      "blog--blog-posts",
+      "text--text-adverts"
+    ]
+  },
+  "presets": {
+    "Queenstown": {
+      "homepage-sections-accent-primary-color": "#627647",
+      "homepage-sections-accent-secondary-color": "#fff",
+      "colorSchemeDarkBackground": "#333",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_text": "#636363",
+      "type_header_font": "neuzeit_office_soft_rounded_n7",
+      "header-text-size": 28,
+      "type_base_font": "neuzeit_office_n4",
+      "type_navigation_font": "neuzeit_office_soft_rounded_n7",
+      "header_font_size": 14,
+      "button_font_style": "normal",
+      "heading_spacing": 0,
+      "product_page_font_size": 24,
+      "product_page_font_style": "normal",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#333",
+      "checkout_button_color": "#333",
+      "checkout_error_color": "#f26c4f",
+      "color_primary_button_text_hover": "#eeeeee",
+      "quick_add_enable": true,
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "announcement-bar--background-color": "#242424",
+            "announcement-bar--text-color": "#ffffff",
+            "enable_social_icons": true
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_header": true,
+            "logo-placement": "center",
+            "logo_padding": 15,
+            "logo_max_width": 160,
+            "label-enable": true,
+            "overlay_header_homepage": true,
+            "main_linklist": "main-menu"
+          }
+        },
+        "image--slideshow": {
+          "type": "image--slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections\/all",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0"
+          ],
+          "settings": {
+            "caption-heading-size": 40,
+            "caption-subheading-size": 20,
+            "caption-button-size": 14,
+            "show-slide-dots": true,
+            "show-slide-arrows": false
+          }
+        },
+        "collection--collection-list": {
+          "type": "collection--collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "Subheading",
+                "overlay-btn-text": "Shop now",
+                "show-gradient-overlay": true
+              }
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "Subheading",
+                "overlay-btn-text": "Shop now",
+                "show-gradient-overlay": true
+              }
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "",
+            "richtext": "",
+            "items-per-row": 2,
+            "remove-spacing": false,
+            "content-position": "below-image"
+          }
+        },
+        "collection--featured-collection": {
+          "type": "collection--featured-collection",
+          "settings": {
+            "rows": 1,
+            "hover-effect": true,
+            "show-vendor": false
+          }
+        },
+        "video--video-hero": {
+          "type": "video--video-hero",
+          "settings": {
+            "desktopHeight": "550",
+            "mobileHeight": "350",
+            "textAlignment": "center-left",
+            "button_label": "Learn more"
+          }
+        },
+        "collection--featured-collection-1": {
+          "type": "collection--featured-collection",
+          "settings": {
+            "hover-effect": true,
+            "show-vendor": false
+          }
+        },
+        "image--text-with-image-overlay-1": {
+          "type": "image--image-with-text-overlay",
+          "settings": {
+            "image_height": "30vw",
+            "bg_image_overlay_opacity": 0,
+            "parallax": true,
+            "button_label": "Shop now"
+          }
+        },
+        "image--logo-list": {
+          "type": "image--logo-list",
+          "blocks": {
+            "image--logo-list-0": {
+              "type": "logo_image",
+              "settings": {}
+            },
+            "image--logo-list-1": {
+              "type": "logo_image",
+              "settings": {}
+            },
+            "image--logo-list-2": {
+              "type": "logo_image",
+              "settings": {}
+            },
+            "image--logo-list-3": {
+              "type": "logo_image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image--logo-list-0",
+            "image--logo-list-1",
+            "image--logo-list-2",
+            "image--logo-list-3"
+          ],
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "text--testimonials": {
+          "type": "text--testimonials",
+          "blocks": {
+            "testimonials-0": {
+              "type": "text",
+              "settings": {
+                "image": "",
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "link": "",
+                "stars": 5
+              }
+            },
+            "testimonials-1": {
+              "type": "text",
+              "settings": {
+                "image": "",
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "link": "",
+                "stars": 5
+              }
+            },
+            "testimonials-2": {
+              "type": "text",
+              "settings": {
+                "image": "",
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "link": "",
+                "stars": 5
+              }
+            }
+          },
+          "block_order": [
+            "testimonials-0",
+            "testimonials-1",
+            "testimonials-2"
+          ],
+          "settings": {}
+        },
+        "image--image-with-text-1": {
+          "type": "image--image-with-text",
+          "settings": {
+            "colors": "white",
+            "text_overlapping_image": true,
+            "text_alignment": "left",
+            "button_label": "Shop now",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        },
+        "products--featured-product": {
+          "type": "products--featured-product",
+          "settings": {}
+        },
+        "image--gallery": {
+          "type": "image--gallery",
+          "blocks": {
+            "gallery-0": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-1": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-2": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-3": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            }
+          },
+          "block_order": [
+            "gallery-0",
+            "gallery-1",
+            "gallery-2",
+            "gallery-3"
+          ],
+          "settings": {
+            "title": "Gallery",
+            "content-position": "hover"
+          }
+        },
+        "image--gallery-0": {
+          "type": "image--gallery",
+          "blocks": {
+            "gallery-0-0": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-0-1": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-0-2": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            },
+            "gallery-0-3": {
+              "type": "image",
+              "settings": {
+                "subheading": "Subheading",
+                "title": "Title"
+              }
+            }
+          },
+          "block_order": [
+            "gallery-0-0",
+            "gallery-0-1",
+            "gallery-0-2",
+            "gallery-0-3"
+          ],
+          "settings": {
+            "content-position": "hover"
+          }
+        },
+        "blog--blog-posts": {
+          "type": "blog--blog-posts",
+          "settings": {}
+        },
+        "text--text-adverts": {
+          "type": "text--text-adverts",
+          "blocks": {
+            "advert-0": {
+              "type": "text",
+              "settings": {}
+            },
+            "advert-1": {
+              "type": "text",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "advert-0",
+            "advert-1"
+          ],
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "footer--newsletter": {
+          "type": "footer--newsletter",
+          "settings": {
+            "show_section": true,
+            "colors": "white"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {}
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "show_methods_of_payment": false
+          }
+        },
+        "template--page-contact": {
+          "type": "template--page-contact",
+          "blocks": {
+            "form-1": {
+              "type": "text",
+              "settings": {
+                "field-type": "text",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-2": {
+              "type": "text",
+              "settings": {
+                "field-type": "email",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-3": {
+              "type": "text",
+              "settings": {
+                "field-type": "textbox",
+                "form-field-label": "",
+                "required": false
+              }
+            }
+          },
+          "block_order": [
+            "form-1",
+            "form-2",
+            "form-3"
+          ],
+          "settings": {}
+        },
+        "template--product": {
+          "type": "template--product",
+          "settings": {
+            "trust-badge_max_width": 180,
+            "thumbnail_changes_variant": true,
+            "image-display": "thumbnails"
+          }
+        },
+        "template--collection": {
+          "type": "template--collection",
+          "settings": {
+            "tags_enable": false,
+            "desktop-products-per-row": 2,
+            "hover-effect": true
+          }
+        },
+        "template--collections-list": {
+          "type": "template--collections-list",
+          "settings": {
+            "show_title": true,
+            "hover-effect": true
+          }
+        },
+        "template--page": {
+          "type": "template--page",
+          "blocks": {
+            "template--page-block-1": {
+              "type": "image_picker",
+              "settings": {
+                "image_title": "",
+                "image_link": ""
+              }
+            },
+            "template--page-block-2": {
+              "type": "text",
+              "settings": {}
+            },
+            "template--page-block-3": {
+              "type": "richtext",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "template--page-block-1",
+            "template--page-block-2",
+            "template--page-block-3"
+          ],
+          "settings": {
+            "show_sidebar": true
+          }
+        }
+      },
+      "content_for_index": [
+        "image--slideshow",
+        "collection--collection-list",
+        "collection--featured-collection",
+        "video--video-hero",
+        "collection--featured-collection-1",
+        "image--text-with-image-overlay-1",
+        "image--logo-list",
+        "text--testimonials",
+        "image--image-with-text-1",
+        "products--featured-product",
+        "image--gallery",
+        "image--gallery-0",
+        "blog--blog-posts",
+        "text--text-adverts"
+      ]
+    },
+    "Byron": {
+      "sale_badge_color": "#952525",
+      "sale_price_color": "#952525",
+      "cart_color": "#333",
+      "header-bg-color": "#f8f8f8",
+      "header-transparent-text": "#333333",
+      "mobile-menu-bg": "#333",
+      "mobile-menu-text": "#f8f8f8",
+      "mobile-menu-text-hover": "#e8e8e8",
+      "color_primary_button_background": "#000",
+      "color_primary_button_text": "#f8f8f8",
+      "color_primary_button_background_hover": "#1e1d1d",
+      "color_primary_button_text_hover": "#f8f8f8",
+      "color_secondary_button_text": "#f8f8f8",
+      "color_secondary_button_background_hover": "#333",
+      "color_secondary_button_text_hover": "#f8f8f8",
+      "colorSchemeLightBackground": "#e8e8e8",
+      "colorSchemeLightText": "#333",
+      "homepage-sections-accent-primary-color": "#333",
+      "homepage-sections-accent-secondary-color": "#f8f8f8",
+      "colorSchemeDarkBackground": "#333",
+      "colorSchemeDarkText": "#f8f8f8",
+      "pop-up-background-color": "#333",
+      "pop-up-text-color": "#f8f8f8",
+      "cart-drawer-bg": "#f8f8f8",
+      "color_footer_bg": "#f8f8f8",
+      "type_header_font": "bitter_n7",
+      "heading_spacing": 0,
+      "type_base_font": "neuzeit_office_n4",
+      "type_navigation_font": "neuzeit_office_n7",
+      "header_font_size": 12,
+      "header_font_case": "uppercase",
+      "button_style": "square",
+      "announcement_text_size": 12,
+      "announcement_text_spacing": 1,
+      "announcement_text_style": "bold",
+      "cart_notes_enable": true,
+      "show_reviews": true,
+      "enable_breadcrumbs": false,
+      "desktop-popup-style": "slide-up",
+      "checkout_logo_size": "small",
+      "checkout_accent_color": "#333",
+      "checkout_button_color": "#333",
+      "checkout_error_color": "#952525",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "enable_announcement_bar": false,
+            "message_link": "",
+            "announcement-bar--background-color": "#242424",
+            "announcement-bar--text-color": "#ffffff",
+            "enable_social_icons": true
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_header": true,
+            "logo_padding": 15,
+            "logo_max_width": 200,
+            "mobile-menu-logo--enabled": false,
+            "label-enable": false,
+            "overlay_header_homepage": true,
+            "main_linklist": "main-menu",
+            "dropdown_alignment": "left",
+            "enable_mega_menu": true
+          }
+        },
+        "footer--newsletter": {
+          "type": "footer--newsletter",
+          "settings": {
+            "show_section": true,
+            "colors": "dark"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {}
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "show_methods_of_payment": false
+          }
+        },
+        "template--page-contact": {
+          "type": "template--page-contact",
+          "blocks": {
+            "form-1": {
+              "type": "text",
+              "settings": {
+                "field-type": "text",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-2": {
+              "type": "text",
+              "settings": {
+                "field-type": "email",
+                "form-field-label": "",
+                "required": false
+              }
+            },
+            "form-3": {
+              "type": "text",
+              "settings": {
+                "field-type": "textbox",
+                "form-field-label": "",
+                "required": false
+              }
+            }
+          },
+          "block_order": [
+            "form-1",
+            "form-2",
+            "form-3"
+          ],
+          "settings": {
+            "layout": "right"
+          }
+        },
+        "template--product": {
+          "type": "template--product",
+          "settings": {
+            "enable_out_of_stock_form": true,
+            "thumbnail_changes_variant": true,
+            "image-display": "thumbnails",
+            "enable_image_zoom": true
+          }
+        },
+        "template--collection": {
+          "type": "template--collection",
+          "settings": {
+            "show-collection-description": true,
+            "tags_enable": false,
+            "desktop-products-per-row": 2,
+            "collection-products-per-page": 3,
+            "hover-effect": true
+          }
+        },
+        "template--collections-list": {
+          "type": "template--collections-list",
+          "settings": {
+            "show_title": true,
+            "hover-effect": true
+          }
+        },
+        "video--video-hero": {
+          "type": "video--video-hero",
+          "settings": {
+            "title": "",
+            "subheading": ""
+          }
+        },
+        "collection--featured-collection": {
+          "type": "collection--featured-collection",
+          "settings": {
+            "title": "Title",
+            "hover-effect": true,
+            "show_view_all": true
+          }
+        },
+        "image--slideshow": {
+          "type": "image--slideshow",
+          "blocks": {
+            "image--slideshow-0": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections\/all",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            },
+            "image--slideshow-1": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections\/all",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            }
+          },
+          "block_order": [
+            "image--slideshow-0",
+            "image--slideshow-1"
+          ],
+          "settings": {
+            "slider-width": "full-width"
+          }
+        },
+        "collection--featured-collection-1": {
+          "type": "collection--featured-collection",
+          "settings": {
+            "title": "Title",
+            "hover-effect": true,
+            "show_view_all": true
+          }
+        },
+        "video--video-hero-1": {
+          "type": "video--video-hero",
+          "settings": {
+            "desktopHeight": "550",
+            "button_label": "Shop now"
+          }
+        },
+        "text--testimonials": {
+          "type": "text--testimonials",
+          "blocks": {
+            "text--testimonials-0": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "link": "",
+                "stars": 5
+              }
+            },
+            "text--testimonials-1": {
+              "type": "text",
+              "settings": {
+                "image": "",
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe",
+                "link": "",
+                "stars": 5
+              }
+            }
+          },
+          "block_order": [
+            "text--testimonials-0",
+            "text--testimonials-1"
+          ],
+          "settings": {}
+        },
+        "collection--collection-list": {
+          "type": "collection--collection-list",
+          "blocks": {
+            "collection--collection-list-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection--collection-list-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection--collection-list-2": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection--collection-list-3": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "collection--collection-list-4": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "collection--collection-list-0",
+            "collection--collection-list-1",
+            "collection--collection-list-2",
+            "collection--collection-list-4"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "",
+            "section-width": "content",
+            "content-position": "hover"
+          }
+        },
+        "blog--blog-posts": {
+          "type": "blog--blog-posts",
+          "settings": {
+            "post_limit": 2
+          }
+        },
+        "image--gallery": {
+          "type": "image--gallery",
+          "blocks": {
+            "image--gallery-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image--gallery-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image--gallery-2": {
+              "type": "image",
+              "settings": {}
+            },
+            "image--gallery-3": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image--gallery-0",
+            "image--gallery-1",
+            "image--gallery-2",
+            "image--gallery-3"
+          ],
+          "settings": {
+            "title": "Title",
+            "remove-spacing": false,
+            "section-width": "content"
+          }
+        }
+      },
+      "content_for_index": [
+        "video--video-hero",
+        "collection--featured-collection",
+        "image--slideshow",
+        "collection--featured-collection-1",
+        "video--video-hero-1",
+        "text--testimonials",
+        "collection--collection-list",
+        "blog--blog-posts",
+        "image--gallery"
+      ]
+    },
+    "Cannes": {
+      "color_primary_button_text_hover": "#eeeeee",
+      "homepage-sections-accent-primary-color": "#f5ebe9",
+      "colorSchemeDarkBackground": "#333",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_text": "#636363",
+      "type_header_font": "madera_n4",
+      "header-text-size": 22,
+      "type_base_font": "avenir_next_n4",
+      "typography-body-font-size": 14,
+      "type_navigation_font": "madera_n4",
+      "header_font_size": 15,
+      "button_text_case": "uppercase",
+      "product_page_font_size": 28,
+      "ajax_cart_method": "added",
+      "show_reviews": true,
+      "pop-up-time": "7",
+      "desktop-popup-style": "fullscreen",
+      "checkout_logo_size": "small",
+      "checkout_accent_color": "#333333",
+      "checkout_button_color": "#f5ebe9",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "announcement-bar--text-color": "#424242"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo-placement": "center",
+            "logo_padding": 25,
+            "logo_max_width": 150,
+            "overlay_header_homepage": true
+          }
+        },
+        "footer--newsletter": {
+          "type": "footer--newsletter",
+          "settings": {
+            "colors": "white"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+                "title": "Contact us",
+                "richtext": "<p>Shorditch High Street<br>London, UK<br>L1 3HG<\/p>\n<p><\/p>\n<p>enquiry@cannes.com<\/p>"
+              }
+            },
+            "footer-1": {
+              "type": "menu",
+              "settings": {
+                "menu_title": "Links",
+                "footer_linklist": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+                "newsletter_title": "Newsletter",
+                "footer_newsletter_description": ""
+              }
+            },
+            "footer-3": {
+              "type": "social",
+              "settings": {
+                "social_title": "Get connected"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2",
+            "footer-3"
+          ],
+          "settings": {}
+        },
+        "template--product": {
+          "type": "template--product",
+          "settings": {
+            "trust-badge_max_width": 180,
+            "thumbnail_changes_variant": true,
+            "image-display": "thumbnails"
+          }
+        },
+        "template--collection": {
+          "type": "template--collection",
+          "settings": {
+            "tags_enable": false,
+            "desktop-products-per-row": 2,
+            "collection-products-per-page": 4,
+            "hover-effect": true
+          }
+        },
+        "template--collections-list": {
+          "type": "template--collections-list",
+          "settings": {
+            "show_title": true,
+            "hover-effect": true
+          }
+        },
+        "image--slideshow": {
+          "type": "image--slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "button_label": "Shop now",
+                "button_link": "shopify:\/\/collections",
+                "captionHorizontal": "right",
+                "captionAlignment": "right"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0"
+          ],
+          "settings": {
+            "caption-heading-size": 40,
+            "caption-subheading-size": 18,
+            "caption-button-size": 16
+          }
+        },
+        "collection--collection-list": {
+          "type": "collection--collection-list",
+          "blocks": {
+            "collection-0": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "",
+                "show-gradient-overlay": false,
+                "overlay_font_color": "#fff"
+              }
+            },
+            "collection-1": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "",
+                "show-gradient-overlay": false,
+                "overlay_font_color": "#fff"
+              }
+            },
+            "collection-2": {
+              "type": "featured_collection",
+              "settings": {
+                "subheading": "",
+                "show-gradient-overlay": false,
+                "overlay_font_color": "#fff"
+              }
+            }
+          },
+          "block_order": [
+            "collection-0",
+            "collection-1",
+            "collection-2"
+          ],
+          "settings": {
+            "colors": "white",
+            "title": "",
+            "items-per-row": 2
+          }
+        },
+        "image--gallery": {
+          "type": "image--gallery",
+          "blocks": {
+            "gallery-0": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-1": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-2": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-3": {
+              "type": "image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/pomme_shoot16794.jpg",
+                "link": "shopify:\/\/products\/juliette-cami",
+                "subheading": "£41.00",
+                "title": "Juliette Cami",
+                "overlay-btn-text": "SHOP NOW",
+                "show-gradient-overlay": true,
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            }
+          },
+          "block_order": [
+            "gallery-0",
+            "gallery-1",
+            "gallery-2",
+            "gallery-3"
+          ],
+          "settings": {
+            "content-position": "hover"
+          }
+        },
+        "image--gallery-0": {
+          "type": "image--gallery",
+          "blocks": {
+            "gallery-0-0": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-0-1": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-0-2": {
+              "type": "image",
+              "settings": {
+                "link": "shopify:\/\/collections\/all",
+                "subheading": "Subheading",
+                "title": "Title",
+                "overlay-btn-text": "SHOP NOW",
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            },
+            "gallery-0-3": {
+              "type": "image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/pomme_shoot16794.jpg",
+                "link": "shopify:\/\/products\/juliette-cami",
+                "subheading": "£41.00",
+                "title": "Juliette Cami",
+                "overlay-btn-text": "SHOP NOW",
+                "show-gradient-overlay": true,
+                "overlay_font_color": "#333333",
+                "overlay_color": "#ffffff"
+              }
+            }
+          },
+          "block_order": [
+            "gallery-0-0",
+            "gallery-0-1",
+            "gallery-0-2",
+            "gallery-0-3"
+          ],
+          "settings": {
+            "content-position": "hover"
+          }
+        },
+        "text--testimonials": {
+          "type": "text--testimonials",
+          "blocks": {
+            "text--testimonials-0": {
+              "type": "text",
+              "settings": {
+                "testimonial_text": "<p>\"Show off incredible feedback from your customers\"<\/p>",
+                "customer_name": "John Doe"
+              }
+            }
+          },
+          "block_order": [
+            "text--testimonials-0"
+          ],
+          "settings": {
+            "colors": "accent",
+            "title": ""
+          }
+        },
+        "image--image-with-text": {
+          "type": "image--image-with-text",
+          "settings": {
+            "button_label": "Shop now",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "image--image-with-text-1": {
+          "type": "image--image-with-text",
+          "settings": {
+            "layout": "right",
+            "button_label": "Shop now",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "newsletter--newsletter": {
+          "type": "newsletter--newsletter",
+          "settings": {
+            "colors": "dark"
+          }
+        },
+        "products--featured-product": {
+          "type": "products--featured-product",
+          "settings": {}
+        },
+        "blog--blog-posts": {
+          "type": "blog--blog-posts",
+          "settings": {
+            "blog_show_date": true
+          }
+        },
+        "image--logo-list": {
+          "type": "image--logo-list",
+          "blocks": {
+            "image--logo-list-0": {
+              "type": "logo_image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/Asset_2.png",
+                "link": ""
+              }
+            },
+            "image--logo-list-1": {
+              "type": "logo_image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/logo2.png",
+                "link": ""
+              }
+            },
+            "image--logo-list-2": {
+              "type": "logo_image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/logo1.png",
+                "link": ""
+              }
+            },
+            "image--logo-list-3": {
+              "type": "logo_image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/logo3.png",
+                "link": ""
+              }
+            },
+            "image--logo-list-4": {
+              "type": "logo_image",
+              "settings": {
+                "image": "shopify:\/\/shop_images\/logo4.png",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "image--logo-list-0",
+            "image--logo-list-1",
+            "image--logo-list-2",
+            "image--logo-list-3",
+            "image--logo-list-4"
+          ],
+          "settings": {
+            "colors": "light",
+            "width": 130,
+            "title": "As seen in"
+          }
+        },
+        "video--video-hero": {
+          "type": "video--video-hero",
+          "settings": {
+            "desktopHeight": "450",
+            "mobileHeight": "350",
+            "heading--text-size": 38,
+            "button_label": "Shop now"
+          }
+        }
+      },
+      "content_for_index": [
+        "image--slideshow",
+        "collection--collection-list",
+        "image--gallery",
+        "image--gallery-0",
+        "text--testimonials",
+        "image--image-with-text",
+        "image--image-with-text-1",
+        "newsletter--newsletter",
+        "products--featured-product",
+        "blog--blog-posts",
+        "image--logo-list",
+        "video--video-hero"
+      ]
+    }
+  }
+}

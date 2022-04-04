@@ -1,0 +1,169 @@
+<!-- Bold: Memberships (accounts) -->
+{% include 'bold-memberships-salt' %}
+<!-- end Bold code -->
+
+<!-- /templates/customers/account.liquid -->
+{% comment %}
+
+  For all available customer liquid tags:
+    - http://docs.shopify.com/themes/liquid-variables/customer
+
+{% endcomment %}
+
+<div class="account-page">
+  
+  <div class="container-fluid">
+    
+    <div class="account-heading d-sm-flex justify-content-between">
+     
+      <div>
+        <h1 class="account-title">Account</h1>
+      </div>
+      
+      <div class="text-sm-right">
+        
+        <span class="customer-logout">
+          <svg style="position:relative;top:-1px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M858.5 763.6a374 374 0 0 0-80.6-119.5a375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1c-.4.2-.8.3-1.2.5c-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8c2-77.2 33-149.5 87.8-204.3c56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z" fill="white"/></svg>
+          <a href="{{ routes.account_logout_url }}" class="link">Log Out</a>
+        </span>
+        
+        <!-- Bold: Memberships (manage memberships) -->
+        <span class="note">
+          <a href="/apps/memberships/accountDetails/?id={{customer.id}}&h={{bold_memberships_hash}}" class="manage-membership link link-underlined">Manage Memberships</a>
+        </span>
+        <!-- end Bold code -->
+        
+      </div>
+    
+    </div>
+    
+    <div class="account-content">
+      
+      <div class="account-details">
+        
+        <h4>Account Details</h4>
+          
+          <div class="address">
+            
+            {% if customer.default_address != nil %}
+              <p>
+              {{ customer.name }}<br>
+              {{ customer.default_address.address1 }}<br>
+
+              {% if customer.default_address.address2 != "" %}
+                {{ customer.default_address.address2 }}<br>
+              {% endif %}
+
+              {% if customer.default_address.city != "" %}
+                {{ customer.default_address.city }}<br>
+              {% endif %}
+
+              {% if customer.default_address.province_code != "" %}
+                {{ customer.default_address.province_code | upcase }}<br>
+              {% endif %}
+
+              {% if customer.default_address.zip != "" %}
+                {{ customer.default_address.zip | upcase }}<br>
+              {% endif %}
+
+              {% if customer.default_address.country != "" %}
+                {{ customer.default_address.country }}<br>
+              {% endif %}
+
+              {% if customer.default_address.phone != "" %}
+                {{ customer.default_address.phone }}
+              {% endif %}
+              </p>
+            {% endif %}
+            
+            <p><a href="{{ routes.account_addresses_url }}" class="link link-underlined">View addresses ({{ customer.addresses_count }})</a></p>
+            
+          </div>
+        
+      </div>
+      
+      <div class="account-orders">
+
+        <h4>Order History</h4>
+        
+        {% paginate customer.orders by 20 %}
+        {% if customer.orders.size != 0 %}
+        
+        <div class="table-wrap">
+          <table class="full table--responsive account-area--order-details d-none d-md-block">
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+                <th>{{ 'customer.orders.action' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+              <tr>
+                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name }}</td>
+                <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}{% if order.financial_status_label == 'Refunded' or order.financial_status_label == 'Partially refunded' %} <span class="money">{{ order.total_refunded_amount | money }}</span>{% endif %}</td>
+                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{{ 'customer.orders.total' | t }}">
+                  {% comment %}
+                  {% if order.financial_status_label == 'Refunded' or order.financial_status_label == 'Partially refunded' %}
+                  <span class="money order--refunded-total">{{ order.total_price | money }}</span>
+                  <span class="money">{{ order.total_price | minus: order.total_refunded_amount | money }}</span>
+                  {% else %}
+                  <span class="money">{{ order.total_price | money }}</span>
+                  {% endif %}
+                  {% endcomment %}
+                  <span class="money">{{ order.total_price | money }}</span>
+                </td>
+                <td data-label="{{ 'customer.orders.action' | t }}" class="text-right">{{ 'customer.orders.view' | t | link_to: order.customer_url, class: "link link-underlined" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+          <table class="customer-orders-table d-md-none">
+            <tbody>
+              {% for order in customer.orders %}
+              <tr>
+                <td data-label="{{ 'customer.orders.order_number' | t }}">{{ 'customer.orders.order_number' | t }}: {{ order.name }}</td>
+                <td data-label="{{ 'customer.orders.date' | t }}">{{ 'customer.orders.date' | t }}: {{ order.created_at | time_tag: format: 'date' }}</td>
+                <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}{% if order.financial_status_label == 'Refunded' or order.financial_status_label == 'Partially refunded' %} <span class="money">{{ order.total_refunded_amount | money }}</span>{% endif %}</td>
+                <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                <td data-label="{{ 'customer.orders.total' | t }}">{{ 'customer.orders.total' | t }}: <span class="money">{{ order.total_price | money }}</span></td>
+                <td data-label="{{ 'customer.orders.action' | t }}">{{ 'customer.orders.view' | t | link_to: order.customer_url, class: "link link-underlined" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+        <p>{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+        {% if paginate.pages > 0 %}
+        <div class="pagination">
+          {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+        </div>
+        {% endif %}
+        {% endpaginate %}  
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Popup Welcome Message-->
+<div class="popup-message welcome-account-message" id="WelcomeAccountMessage" style="display: none;">
+  <div class="inner">
+    <h2 class="title">YOU ARE NOW READY TO SHOP</h2>
+    <div class="text-wrap">
+      <p>Click below to shop the full Cierto Collection, including the Reserve Collection</p>
+    </div>
+    <a href="/collections/all" class="button golden-outline"><span>Shop All Collections</span></a>
+  </div>
+</div>
+<!-- End Popup Welcome Message-->

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+    
+    <style>
+      .step .edit_checkout .section--shipping-method .section__header p { margin-top: 5px; }
+      .icon-svg--color-accent { color: #b8b8b8; }
+      .main a { color: #b8b8b8; }
+      .main a:hover { color: #b8b8b8; text-decoration: underline; }
+      footer .copyright-text { margin-bottom: 2px; }
+      footer .copyright-text:last-child { margin-bottom: 0; }
+      footer .copyright-text a { text-decoration: underline; }
+      footer .copyright-text a:hover { text-decoration: none; }
+      .step__footer .copyright-text { position: absolute; top: 5px; left: 2px; }
+      .step__footer__previous-link { margin-top: 35px; }
+      @media (max-width: 749px) {
+        .step__footer .copyright-text { position: static; text-align: center; margin-top: 20px; }
+        .step__footer__previous-link { margin-top: 0; }
+      }
+    </style>
+    <script>
+      (function($) {
+        $(document).on('page:load', function() {
+          $('.step .edit_checkout .copyright-text').remove();
+          $('.step__footer__previous-link').before('<p class="copyright-text">All sales made by <strong>Keg N Bottle</strong></p>');
+          if (Shopify.Checkout.step === 'shipping_method' || Shopify.Checkout.step === 'payment_method') {
+            $('.step .edit_checkout .section--shipping-method .section__header').append('<p>An adult(age 21+) signature is required upon delivery.</p>');
+          	$('.step .edit_checkout').append('<div class="section section--verification" data-verification>\
+              <div class="section__header">\
+                <h2 class="section__title">MUST BE OVER 21 TO ORDER</h2>\
+              </div>\
+              <div class="section__content">\
+                <div class="content-box">\
+                  <div class="content-box__row">\
+                    Alcohol orders placed via the Fine Mexican Spirits marketing platform are sold, shipped and fulfilled by a licensed retailer, which is the seller of record and has the right to accept or reject any order in its sole discretion. <a href="/pages/terms">See full terms and conditions here.</a><br><br><strong>PROP 65 WARNING:</strong><br>Drinking distilled spirits, beer, coolers, wine and other alcoholic beverages may increase cancer risk, and, during pregnancy, can cause birth defects. For more information go to <a href="https://www.p65warnings.ca.gov/alcohol">www.P65Warnings.ca.gov/alcohol</a>\
+                  </div>\
+                </div>\
+              </div>\
+            </div>');
+          }
+        });
+        $(document).on('page:change', function() {
+          $('.step .edit_checkout .copyright-text').remove();
+          $('.step__footer__previous-link').before('<p class="copyright-text">All sales made by <strong>Keg N Bottle</strong></p>');
+		});
+      })(Checkout.$);
+    </script>
+  </head>
+  <body>
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            <p class="copyright-text">
+              <a href="/pages/privacy">Privacy & Policy</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/pages/terms">Terms & Conditions</a>
+            </p>
+            {% comment %}
+            {{ content_for_footer }}
+            {% endcomment %}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+  </body>
+</html>
